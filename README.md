@@ -18,11 +18,12 @@ docker compose -f compose.yaml -f compose.dev.yaml up -d
 
 ## Migrations
 
-Run migrations:
-
+Initialise Sqitch:
 ```sh
 sqitch init widgets --target db:pg:widgets
 ```
+
+Run migrations:
 
 ```sh
 sqitch deploy
