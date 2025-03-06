@@ -20,12 +20,12 @@ sqitch init widgets --target db:pg:widgets
 sqitch deploy
 ```
 
-## Production
+## Production (this is web app docs?)
 
 Build production OpenResty container:
 
 ```sh
-docker build -f openresty/Dockerfile .
+RESTY_DEB_FLAVOR="-debug" docker build -f openresty/Dockerfile -t ghcr.io/explodinglabs/myapp-web .
 ```
 
 Push the image:
