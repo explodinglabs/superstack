@@ -10,6 +10,16 @@ Start Minibase:
 docker compose -f compose.yaml -f compose.dev.yaml up -d
 ```
 
+```sh
+sqitch init widgets --target db:pg:widgets
+```
+
+Run migrations:
+
+```sh
+sqitch deploy
+```
+
 ## Production
 
 Build production OpenResty container:
