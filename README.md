@@ -29,7 +29,7 @@ Run migrations:
 sqitch deploy
 ```
 
-## Production (this is web app docs?)
+## Production (move this to web app docs)
 
 Build production OpenResty container:
 
