@@ -10,11 +10,11 @@ Start Minibase:
 docker compose -f compose.yaml -f compose.dev.yaml up -d
 ```
 
+Run migrations:
+
 ```sh
 sqitch init widgets --target db:pg:widgets
 ```
-
-Run migrations:
 
 ```sh
 sqitch deploy
