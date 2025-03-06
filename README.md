@@ -83,12 +83,26 @@ TODO
 
 # Production
 
-docker build -f openresty/Dockerfile .
-docker push ghcr.io/explodinglabs/myapp-openresty
-Add remote context:
+Build production OpenResty container:
 
-Switch to remote context:
+```sh
+docker build -f openresty/Dockerfile .
+```
+
+Push the image:
+
+```sh
+docker push ghcr.io/explodinglabs/myapp-openresty
+```
+
+Add prod context:
+
+```sh
 docker context add ssh://
+```
 
 Bring up remote containers:
-docker compose up -d
+
+```sh
+docker compose --context prod up -d
+```
