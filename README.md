@@ -4,11 +4,19 @@ Minibase is a lightweight backend infrastructure.
 
 <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.png?raw=true" />
 
+Create a .env file:
+
+```sh
+cp .example.env .env
+```
+
 Start Minibase:
 
 ```sh
 docker compose -f compose.yaml -f compose.dev.yaml up -d
 ```
+
+## Migrations
 
 Run migrations:
 
