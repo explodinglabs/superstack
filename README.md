@@ -10,7 +10,7 @@ Start Minibase:
 docker compose -f compose.yaml -f compose.dev.yaml up -d
 ```
 
-# Production
+## Production
 
 Build production OpenResty container:
 
