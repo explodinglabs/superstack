@@ -25,6 +25,7 @@ sqitch deploy
 Build production OpenResty container:
 
 ```sh
+docker compose build openresty
 RESTY_DEB_FLAVOR="-debug" docker build -f openresty/Dockerfile -t ghcr.io/explodinglabs/myapp-web .
 ```
 
@@ -34,7 +35,7 @@ Push the image:
 docker push ghcr.io/explodinglabs/myapp-openresty
 ```
 
-Add prod context:
+Create a prod context:
 
 ```sh
 docker context add ssh://
