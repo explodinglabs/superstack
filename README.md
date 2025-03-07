@@ -1,4 +1,4 @@
-<img alt="Minibase logo" style="margin: auto" src="https://github.com/explodinglabs/minibase/blob/main/logo.png?raw=true" />
+<img alt="Minibase logo" align="center" src="https://github.com/explodinglabs/minibase/blob/main/logo.png?raw=true" />
 
 Minibase is a lightweight backend infrastructure.
 
@@ -19,6 +19,7 @@ docker compose -f compose.yaml -f compose.dev.yaml up -d
 ## Migrations
 
 Initialise Sqitch:
+
 ```sh
 sqitch init widgets --target db:pg:widgets
 ```
