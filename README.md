@@ -1,6 +1,6 @@
 <p align="center"><img alt="Minibase logo" src="https://github.com/explodinglabs/minibase/blob/main/logo.png?raw=true" /></p>
 
-<p align="center">A lightweight backend infrastructure.</p>
+<p align="center">A lightweight, extensible backend infrastructure.</p>
 
 <p align="center"><img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" /></p>
 
