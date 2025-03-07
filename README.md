@@ -15,5 +15,5 @@ cp .example.env .env
 Start Minibase:
 
 ```sh
-docker compose -f compose.yaml -f compose.dev.yaml up -d
+docker compose up -d
 ```
