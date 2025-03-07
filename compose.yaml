@@ -39,6 +39,8 @@ services:
     container_name: ${APPNAME:?error}-openresty
     build:
       dockerfile: openresty/Dockerfile
+      args:
+        RESTY_DEB_FLAVOR: -debug
     image: ghcr.io/explodinglabs.com/${APPNAME:?error}-openresty
     restart: unless-stopped
     ports:
@@ -49,3 +51,4 @@ services:
 network:
   app:
     driver: bridge
+    name: ${APPNAME:?error}

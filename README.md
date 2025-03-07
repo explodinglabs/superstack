@@ -4,91 +4,54 @@ Minibase is a lightweight backend infrastructure.
 
 <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.png?raw=true" />
 
-Install Minibase:
+Create a .env file:
 
 ```sh
-curl -sSL https://raw.githubusercontent.com/explodinglabs/minibase/main/scripts/install.sh | sh
+cp .example.env .env
 ```
+
+Start Minibase:
 
 ```sh
-docker-service get explodinglabs/postgres explodinglabs/openresty
+docker compose -f compose.yaml -f compose.dev.yaml up -d
 ```
 
-# docker compose up -d -f postgres.yml -f postgrest.yml -f gotrue.yml -f openresty.yml
+## Migrations
 
-## OpenResty
+Initialise Sqitch:
+```sh
+sqitch init widgets --target db:pg:widgets
+```
 
-Start OpenResty:
+Run migrations:
 
 ```sh
-docker run
-  --detach \
-  --restart=unless-stopped \
-  --name myapp-openresty \
-  --network myapp \
-  --volume ./openresty/conf.d:/etc/nginx/conf.d:Z \
-  --publish 80:80 \
-  ghcr.io/explodinglabs/openresty
+sqitch deploy
 ```
 
-## Postgres
+## Production (move this to web app docs)
 
-Start Postgres:
+Build production OpenResty container:
 
 ```sh
-docker run \
-  --env POSTGRES_PASSWORD="postgres" \
-  --env POSTGRES_DB="app" \
-  --detach \
-  --restart=unless-stopped \
-  --name myapp-postgres \
-  --network myapp \
-  --volume ./data:/var/lib/postgresql/data:Z \
-  ghcr.io/explodinglabs/postgres
+docker compose build openresty
+RESTY_DEB_FLAVOR="-debug" docker build -f openresty/Dockerfile -t ghcr.io/explodinglabs/myapp-web .
 ```
 
-## PostgREST
-
-Start PostgREST:
+Push the image:
 
 ```sh
-docker run \
-  --env PGRST_DB_URI="postgres://authenticator:mysecretpassword@myapp-postgres:5432/app" \
-  --env PGRST_JWT_SECRET=$JWT_SECRET \
-  --env PGRST_APP_SETTINGS_JWT_SECRET=$JWT_SECRET \
-  --detach \
-  --restart=unless-stopped \
-  --name myapp-postgrest \
-  --network myapp \
-  ghcr.io/explodinglabs/postgrest
-```
-
-Copy `postgrest.conf` into OpenResty's configuration:
-
-```sh
-cp openresty/conf.d/postgrest.conf
-```
-
-```sh
-docker exec myapp-openresty /usr/bin/openresty -s reload
-```
-
-## GoTrue
-
-Start GoTrue:
-
-```sh
-TODO
-```
-
-# Production
-
-docker build -f openresty/Dockerfile .
 docker push ghcr.io/explodinglabs/myapp-openresty
-Add remote context:
+```
 
-Switch to remote context:
+Create a prod context:
+
+```sh
 docker context add ssh://
+```
 
 Bring up remote containers:
-docker compose up -d
+
+```sh
+docker compose --context prod up -d
+```
