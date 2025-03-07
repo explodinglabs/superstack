@@ -1,8 +1,8 @@
 <p align="center"><img alt="Minibase logo" src="https://github.com/explodinglabs/minibase/blob/main/logo.png?raw=true" /></p>
 
-Minibase is a lightweight backend infrastructure.
+<p align="center">Minibase is a lightweight backend infrastructure.</p>
 
-<img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.png?raw=true" />
+<p align="center"><img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.png?raw=true" /></p>
 
 Create a .env file:
 
