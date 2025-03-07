@@ -1,4 +1,4 @@
-<img alt="Minibase logo" src="https://github.com/explodinglabs/sp-admin/blob/main/logo.png?raw=true" />
+<img alt="Minibase logo" src="https://github.com/explodinglabs/minibase/blob/main/logo.png?raw=true" />
 
 Minibase is a lightweight backend infrastructure.
 
