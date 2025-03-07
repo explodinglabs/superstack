@@ -2,7 +2,7 @@
 
 <p align="center">A lightweight backend infrastructure.</p>
 
-<p align="center"><img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.png?raw=true" /></p>
+<p align="center"><img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" /></p>
 
 ## Usage
 
