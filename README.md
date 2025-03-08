@@ -17,3 +17,5 @@ Start Minibase:
 ```sh
 docker compose up -d
 ```
+
+Full documentation in the [wiki](https://github.com/minibasehq/minibase/wiki).

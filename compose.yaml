@@ -17,6 +17,19 @@ services:
     networks:
       - app
 
+  openresty:
+    container_name: ${APPNAME:?error}-openresty
+    build:
+      dockerfile: openresty/Dockerfile
+      args:
+        RESTY_DEB_FLAVOR: -debug
+    image: ghcr.io/explodinglabs.com/${APPNAME:?error}-openresty
+    restart: unless-stopped
+    ports:
+      - ${OPENRESTY_PORT:?error}:80
+    networks:
+      - app
+
   postgrest:
     container_name: ${APPNAME:?error}-postgrest
     image: postgrest/postgrest:v12.2.3
@@ -32,19 +45,6 @@ services:
       PGRST_DB_URI: postgres://authenticator:${POSTGRES_PASSWORD}@${APPNAME:?error}-postgres:5432/app
       PGRST_DB_USE_LEGACY_GUCS: "false"
       PGRST_JWT_SECRET: ${JWT_SECRET}
-    networks:
-      - app
-
-  openresty:
-    container_name: ${APPNAME:?error}-openresty
-    build:
-      dockerfile: openresty/Dockerfile
-      args:
-        RESTY_DEB_FLAVOR: -debug
-    image: ghcr.io/explodinglabs.com/${APPNAME:?error}-openresty
-    restart: unless-stopped
-    ports:
-      - ${OPENRESTY_PORT:?error}:80
     networks:
       - app
 
