@@ -11,9 +11,9 @@
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" />
 </p>
 
-Minibase is a backend infrastructure based on Postgres with OpenResty as an API
-gateway. The default configuration comes with with PostgREST and Supabase Auth,
-but parts can be swapped out easily.
+Minibase is a lightweight backend infrastructure that uses OpenResty as an API
+gateway to database-access tools. The default setup includes PostgREST and
+Supabase Auth, but components can be easily added and swapped out as needed.
 
 ## Usage
 
@@ -35,3 +35,5 @@ docker compose up -d
 ```
 
 Full documentation in the [wiki](https://github.com/explodinglabs/minibase/wiki).
+
+## Adding
