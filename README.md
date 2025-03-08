@@ -13,6 +13,11 @@
 
 ## Usage
 
+```sh
+git clone --depth 1 https://github.com/explodinglabs/minibase myapp
+cd myapp
+```
+
 Create an env file:
 
 ```sh
