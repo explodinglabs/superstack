@@ -1,5 +1,4 @@
 services:
   openresty:
     volumes:
-      - ./openresty/docs:/etc/nginx/docs:Z
-      - ./openresty/conf.d/app.conf:/etc/nginx/conf.d/app.conf:Z
+      - ./openresty/conf.d:/etc/nginx/conf.d:Z

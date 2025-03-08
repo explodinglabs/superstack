@@ -19,11 +19,7 @@ services:
 
   openresty:
     container_name: ${APPNAME:?error}-openresty
-    build:
-      dockerfile: openresty/Dockerfile
-      args:
-        RESTY_DEB_FLAVOR: -debug
-    image: ghcr.io/explodinglabs.com/${APPNAME:?error}-openresty
+    image: openresty/openresty:1.21.4.1-0-bullseye-fat
     restart: unless-stopped
     ports:
       - ${OPENRESTY_PORT:?error}:80
@@ -48,7 +44,7 @@ services:
     networks:
       - app
 
-network:
+networks:
   app:
     driver: bridge
     name: ${APPNAME:?error}
