@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  A lightweight, extensible backend.
+  A lightweight and extensible backend.
 </p>
 
 <p align="center">
