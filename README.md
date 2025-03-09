@@ -10,8 +10,9 @@
 ## What is Minibase?
 
 Minibase is an application backend alternative to Supabase and Firebase. It
-uses an API gateway to Postgres-access tools. The default setup includes a REST
-API (PostgREST), but components can be added and swapped out as needed.
+uses an API gateway to access Postgres via middleware. The default setup
+includes a PostgREST API, but components can be added and swapped out as
+needed.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" />
