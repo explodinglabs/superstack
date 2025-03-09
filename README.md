@@ -7,15 +7,15 @@
   A lightweight and extensible backend.
 </p>
 
+## What is Minibase?
+
+Minibase is a backend infrastructure that has an API gateway to Postgres-access
+tools. The default setup includes a REST API, but components can be added and
+swapped out as needed.
+
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" />
 </p>
-
-## What is Minibase?
-
-Minibase is a backend infrastructure that uses OpenResty as an API gateway to
-database-access tools. The default setup includes PostgREST and Supabase Auth,
-but components can be added and swapped out as needed.
 
 ## Installation
 
@@ -26,6 +26,6 @@ cp .example.env .env
 docker compose up -d
 ```
 
-## Components
+Test it with https://localhost/
 
-See the [wiki](https://github.com/explodinglabs/minibase/wiki).
+To add more components, see the [documentation](https://github.com/explodinglabs/minibase/wiki).
