@@ -3,10 +3,6 @@
 </p>
 
 <p align="center">
-  A lightweight and extensible backend.
-</p>
-
-<p align="center">
   <a href="https://github.com/minibasehq/minibase/wiki">Documentation</a> |
   <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a> |
   <a href="https://discord.gg/zBQQSkAg">Discord</a>
@@ -14,10 +10,10 @@
 
 ## What is Minibase?
 
-Minibase is an **application backend** alternative to Supabase and Firebase. It
-has a Postgres base and a set of data-interface tools which are accessed
-through an API gateway. The default setup includes a PostgREST API, but
-components can be added and swapped out as needed.
+Minibase is a lightweight and extensible **application backend** alternative to
+Supabase and Firebase. It has a Postgres base and a set of data-interface tools
+which are accessed through an API gateway. The default setup includes a
+PostgREST API, but components can be added and swapped out as needed.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" />
