@@ -7,19 +7,18 @@
   A lightweight and extensible backend.
 </p>
 
-126, 251, 179
-
 ## What is Minibase?
 
 Minibase is an application backend alternative to Supabase and Firebase. It
 uses an API gateway to Postgres-access tools. The default setup includes a REST
-API (PostgREST), but components can be added and swapped out as needed. Being
-more lightweight than the alternatives, multiple applications can be brought up
-locally for development.
+API (PostgREST), but components can be added and swapped out as needed.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" />
 </p>
+
+Being more lightweight than the alternatives, multiple applications can be
+brought up locally for development.
 
 ## Installation
 
@@ -32,4 +31,4 @@ docker compose up -d
 
 Test it with https://localhost/
 
-See the full [documentation](https://github.com/explodinglabs/minibase/wiki).
+See the [full documentation](https://github.com/explodinglabs/minibase/wiki).
