@@ -3,6 +3,12 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/minibasehq/minibase/wiki">Discussions</a> |
+  <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a> |
+  <a href="https://discord.gg/zBQQSkAg">Discord</a>
+</p>
+
+<p align="center">
   A lightweight and extensible backend.
 </p>
 
