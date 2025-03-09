@@ -8,7 +8,7 @@
   <a href="https://discord.gg/zBQQSkAg">Discord</a>
 </p>
 
-Minibase is an **application backend** alternative to
+Minibase is an **application backend**, a lightweight alternative to
 Supabase and Firebase. It has a Postgres base and a set of components
 that are accessed through an API gateway. The default setup includes a
 REST API, but the components can be added and swapped out as needed.
