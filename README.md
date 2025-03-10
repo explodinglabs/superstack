@@ -9,9 +9,8 @@
 </p>
 
 Minibase is an **application backend**, designed to be a lightweight alternative to
-Supabase and Firebase. It has a Postgres base and a set of data-access components
-that are accessed through an API gateway. The default setup includes a
-REST API, but the components can be added and swapped out as needed.
+Supabase and Firebase. It has a Postgres base and a set of satellite service accessed through an API gateway. The default setup includes a
+REST API, but services can be added and swapped out as needed.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" />
