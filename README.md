@@ -4,6 +4,7 @@
 
 <p align="center">
   <a href="https://github.com/minibasehq/minibase/wiki">Documentation</a>
+  <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a>
 </p>
 
 Minibase is an **application backend**, designed as a lightweight alternative to
