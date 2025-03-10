@@ -3,13 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/minibasehq/minibase/wiki">Documentation</a> |
-  <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a> |
-  <a href="https://discord.gg/zBQQSkAg">Discord</a>
+  <a href="https://github.com/minibasehq/minibase/wiki">Documentation</a>
 </p>
 
 Minibase is an **application backend**, designed as a lightweight alternative to
-Supabase and Firebase. It has a Postgres base and a set of satellite service accessed through an API gateway. The default setup includes a
+Supabase and Firebase. It has a Postgres base and a set of satellite services accessed through an API gateway. The default setup includes a
 REST API, but services can be added and swapped out as needed.
 
 <p align="center">
