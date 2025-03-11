@@ -1,11 +1,13 @@
 services:
   postgres:
     container_name: ${APPNAME:?error}-postgres
-    image: ghcr.io/explodinglabs/postgres
+    image: postgres:17
     restart: unless-stopped
     volumes:
       - $HOME/data/${APPNAME:?error}:/var/lib/postgresql/data:Z
       - ./postgres/init/jwt.sql:/docker-entrypoint-initdb.d/init-scripts/
+    networks:
+      - app
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres", "-h", "localhost"]
       interval: 5s
@@ -14,8 +16,6 @@ services:
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: app
-    networks:
-      - app
 
   openresty:
     container_name: ${APPNAME:?error}-openresty
@@ -28,11 +28,13 @@ services:
 
   postgrest:
     container_name: ${APPNAME:?error}-postgrest
-    image: postgrest/postgrest:v12.2.3
+    image: postgrest/postgrest:v12.2.8
     restart: unless-stopped
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - app
     environment:
       PGRST_APP_SETTINGS_JWT_EXP: ${JWT_EXPIRY}
       PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET}
@@ -41,8 +43,6 @@ services:
       PGRST_DB_URI: postgres://authenticator:${POSTGRES_PASSWORD}@${APPNAME:?error}-postgres:5432/app
       PGRST_DB_USE_LEGACY_GUCS: "false"
       PGRST_JWT_SECRET: ${JWT_SECRET}
-    networks:
-      - app
 
 networks:
   app:

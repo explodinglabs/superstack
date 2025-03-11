@@ -16,7 +16,8 @@ which are accessed through an API gateway. The default setup includes a
 PostgREST API, but components can be added and swapped out as needed.
 
 <p align="center">
-  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture.svg?raw=true" />
+  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture-light.svg?raw=true#gh-light-mode-only" />
+  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture-dark.svg?raw=true#gh-dark-mode-only" />
 </p>
 
 Being more lightweight than the alternatives, multiple applications can be
