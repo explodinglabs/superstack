@@ -7,7 +7,7 @@
   <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a>
 </p>
 
-Minibase is a lightweight **application backend** with a Postgres base and an API gateway middleware layer of services that can be added and swapped out as needed.
+Minibase is a lightweight **application backend** with a Postgres base, an API gateway, and a middleware layer of services that can be swapped out as needed.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/architecture-light.svg?raw=true#gh-light-mode-only" />
