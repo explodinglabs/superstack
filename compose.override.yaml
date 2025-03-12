@@ -1,4 +1,6 @@
 services:
-  openresty:
+  caddy:
     volumes:
-      - ./openresty/conf.d:/etc/nginx/conf.d:Z
+      - ./caddy/conf:/etc/caddy
+    environment:
+      CADDY_ENV: local.Caddyfile

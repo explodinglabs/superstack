@@ -1,0 +1,8 @@
+{
+  import {$CADDY_ENV}
+}
+
+:80, :443 {
+  reverse_proxy /api/* postgrest:3000
+  reverse_proxy /rpc/* postgrest:3000
+}
