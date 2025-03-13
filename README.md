@@ -22,7 +22,7 @@ brought up locally for development.
 ```sh
 git clone --depth 1 https://github.com/minibasehq/minibase myapp
 cd myapp
-cp .example.env .env
+cp example.env .env
 docker compose up -d
 ```
 
