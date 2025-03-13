@@ -25,12 +25,10 @@ services:
       - $CADDY_PORT:80
       - 443:443
     volumes:
-      - $HOME/caddy_data:/data
-      - $HOME/caddy_config:/config
+      - $HOME/caddy_data/${APPNAME:?error}:/data
+      - $HOME/caddy_config/${APPNAME:?error}:/config
     networks:
       - app
-    environment:
-      CADDY_ENV: prod.Caddyfile
 
   postgrest:
     container_name: ${APPNAME:?error}-postgrest

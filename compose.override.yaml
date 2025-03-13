@@ -3,4 +3,4 @@ services:
     volumes:
       - ./caddy/conf:/etc/caddy
     environment:
-      CADDY_ENV: local.Caddyfile
+      - CADDY_AUTO_HTTPS=on
