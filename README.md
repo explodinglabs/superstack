@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Minibase logo" src="https://github.com/minibasehq/minibase/blob/main/.images/logo.png?raw=true" />
+  <img alt="Minibase logo" height="35" src="https://github.com/minibasehq/minibase/blob/main/.images/logo.png?raw=true" />
 </p>
 
 <p align="center">
@@ -7,7 +7,8 @@
   <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a>
 </p>
 
-Minibase is an **application backend** with a Postgres base, an API gateway, and a middleware layer of services that can be swapped out as needed.
+Minibase is an **application backend** with a Postgres base, an API gateway,
+and a middleware layer of satellite services that can be swapped out as needed.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/minibasehq/minibase/blob/main/.images/architecture-light.svg?raw=true#gh-light-mode-only" />

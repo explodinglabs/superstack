@@ -3,4 +3,4 @@ services:
     volumes:
       - ./caddy/conf:/etc/caddy
     environment:
-      - CADDY_AUTO_HTTPS=on
+      - CADDY_AUTO_HTTPS=off

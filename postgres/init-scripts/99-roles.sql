@@ -1,16 +1,14 @@
--- NOTE: change to your own passwords for production environments
-\set pgpass `echo "$POSTGRES_PASSWORD"`
+DO
+$$
+DECLARE
+  pwd TEXT;
+BEGIN
+  -- Get the password from PostgreSQL settings
+  pwd := current_setting('custom.authenticator_password', true);
 
-do
-$do$
-begin
-   if exists (
-     select from pg_catalog.pg_roles
-     where rolname = 'authenticator'
-   ) then
-      raise notice 'Role already exists, skipping.';
-   else
-      create role authenticator noinherit login password :'pgpass';
-   end if;
-end
-$do$;
+  -- Check if the role exists before creating it
+  IF NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'authenticator') THEN
+    EXECUTE format('CREATE ROLE authenticator WITH LOGIN PASSWORD %L', pwd);
+  END IF;
+END
+$$;

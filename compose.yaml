@@ -1,110 +1,47 @@
 services:
   postgres:
-    container_name: ${APPNAME:?error}-postgres
     image: postgres:17
     networks: [app]
     volumes:
       - $HOME/data/${APPNAME:?error}:/var/lib/postgresql/data:Z
-      - ./postgres/init/jwt.sql:/docker-entrypoint-initdb.d/init-scripts/
+      - ./postgres/init-scripts:/docker-entrypoint-initdb.d:ro
+    command: postgres -c custom.authenticator_password=$PG_AUTHENTICATOR_PASSWORD
+    environment:
+      POSTGRES_USER: $PG_USER
+      POSTGRES_PASSWORD: $PG_PASS
+      POSTGRES_DB: app # This is one database to be created, others are in init-scripts
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "postgres", "-h", "localhost"]
+      test:
+        ["CMD", "pg_isready", "-U", $PG_USER, "-h", "localhost", "-d", "app"]
       interval: 5s
       timeout: 5s
       retries: 10
-    environment:
-      POSTGRES_PASSWORD: ${PG_PASS}
-      POSTGRES_DB: app
-
-  caddy:
-    image: caddy:2.9.1
-    container_name: ${APPNAME:?error}-caddy
-    networks:
-      - app
-    ports:
-      - $CADDY_PORT:80
-      - 443:443
-    volumes:
-      - $HOME/caddy_data/${APPNAME:?error}:/data
-      - $HOME/caddy_config/${APPNAME:?error}:/config
-
-  redis:
-    image: redis:alpine
-    container_name: ${APPNAME:?error}-redis
-    command: --save 60 1 --loglevel warning
-    networks: [app]
-    healthcheck:
-      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
-      start_period: 20s
-      interval: 30s
-      retries: 5
-      timeout: 3s
-    volumes:
-      - $HOME/redis:/data
-
-  authentik:
-    image: ghcr.io/goauthentik/server:2025.2.1
-    container_name: ${APPNAME:?error}-authentik-server
-    command: server
-    networks: [app]
-    environment:
-      AUTHENTIK_REDIS__HOST: redis
-      AUTHENTIK_POSTGRESQL__HOST: postgres
-      AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_POSTGRESQL__NAME: authentik
-      AUTHENTIK_POSTGRESQL__PASSWORD: ${AUTHENTIK_PG_PASS}
-    volumes:
-      - $HOME/authentik/media:/media
-      - $HOME/authentik/custom-templates:/templates
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-
-  worker:
-    image: ghcr.io/goauthentik/server:2025.2.1
-    container_name: ${APPNAME:?error}-authentik-worker
-    command: worker
-    networks: [app]
-    environment:
-      AUTHENTIK_REDIS__HOST: redis
-      AUTHENTIK_POSTGRESQL__HOST: postgres
-      AUTHENTIK_POSTGRESQL__USER: authentik
-      AUTHENTIK_POSTGRESQL__NAME: authentik
-      AUTHENTIK_POSTGRESQL__PASSWORD: ${AUTHENTIK_PG_PASS}
-    # `user: root` and the docker socket volume are optional.
-    # See more for the docker socket integration here:
-    # https://goauthentik.io/docs/outposts/integrations/docker
-    # Removing `user: root` also prevents the worker from fixing the permissions
-    # on the mounted folders, so when removing this make sure the folders have the correct UID/GID
-    # (1000:1000 by default)
-    user: root
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - $HOME/authetik/media:/media
-      - $HOME/authetik/certs:/certs
-      - $HOME/authetik/custom-templates:/templates
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
 
   postgrest:
-    container_name: ${APPNAME:?error}-postgrest
     image: postgrest/postgrest:v12.2.8
     networks: [app]
     depends_on:
       postgres:
         condition: service_healthy
     environment:
-      PGRST_APP_SETTINGS_JWT_EXP: ${JWT_EXPIRY}
-      PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET}
+      PGRST_APP_SETTINGS_JWT_EXP: $JWT_EXPIRY
+      PGRST_APP_SETTINGS_JWT_SECRET: $JWT_SECRET
       PGRST_DB_ANON_ROLE: anon
       PGRST_DB_SCHEMAS: api
-      PGRST_DB_URI: postgres://authenticator:${PG_PASS}@${APPNAME:?error}-postgres:5432/app
+      PGRST_DB_URI: postgres://authenticator:${PG_AUTHENTICATOR_PASSWORD}@postgres:5432/app
       PGRST_DB_USE_LEGACY_GUCS: false
-      PGRST_JWT_SECRET: ${JWT_SECRET}
+      PGRST_JWT_SECRET: $JWT_SECRET
+
+  caddy:
+    image: caddy:2
+    networks: [app]
+    depends_on: [postgrest]
+    ports:
+      - $CADDY_PORT:80
+      - 443:443
+    volumes:
+      - $HOME/caddy_data/${APPNAME:?error}:/data
+      - $HOME/caddy_config/${APPNAME:?error}:/config
 
 networks:
   app:
