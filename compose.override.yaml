@@ -1,4 +1,13 @@
 services:
+  postgres:
+    volumes:
+      - ./postgres/init-scripts:/docker-entrypoint-initdb.d:ro
+
+  sqitch:
+    working_dir: /data
+    volumes:
+      - ./migrations:/workspace
+
   caddy:
     volumes:
       - ./caddy/conf:/etc/caddy

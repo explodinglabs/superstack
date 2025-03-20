@@ -1,20 +1,39 @@
+# Production compose file. Don't mount any local directories from the
+# repository in here, that can be done in the override file - for development.
+
 services:
   postgres:
     image: postgres:17
     volumes:
-      - $HOME/data/${APPNAME:?error}:/var/lib/postgresql/data:Z
-      - ./postgres/init-scripts:/docker-entrypoint-initdb.d:ro
+      - postgres_data:/var/lib/postgresql/data:Z
     command: postgres -c custom.authenticator_password=$PG_AUTHENTICATOR_PASSWORD
     environment:
       POSTGRES_USER: $PG_USER
       POSTGRES_PASSWORD: $PG_PASS
-      POSTGRES_DB: app # This is one database to be created, others are in init-scripts
+      POSTGRES_DB: app
     healthcheck:
       test:
         ["CMD", "pg_isready", "-U", $PG_USER, "-h", "localhost", "-d", "app"]
       interval: 5s
       timeout: 5s
       retries: 10
+
+  sqitch:
+    image: sqitch/sqitch
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: "no" # Ensures Sqitch runs once and stops
+    volumes:
+      # The data dir is used to store the sqitch_done file, on local and remote
+      # host. The file tells docker compose that the migrations have completed.
+      - sqitch_data:/data
+    entrypoint: ""
+    command: sh -c "sqitch deploy && touch /workspace/sqitch_done"
+    healthcheck:
+      test: ["CMD", "test", "-f", "/data/sqitch_done"]
+      interval: 5s
+      retries: 60
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
@@ -37,5 +56,11 @@ services:
       - $CADDY_PORT:80
       - 443:443
     volumes:
-      - $HOME/caddy_data/${APPNAME:?error}:/data
-      - $HOME/caddy_config/${APPNAME:?error}:/config
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  postgres_data:
+  sqitch_data:
+  caddy_data:
+  caddy_config:
