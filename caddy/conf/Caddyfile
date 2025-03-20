@@ -1,11 +1,4 @@
 :80, :443 {
-  log {
-    output stderr
-    format console
-  }
-  handle_path /auth/* {
-    reverse_proxy authentik:9000
-  }
-  reverse_proxy /api/* postgrest:3000
-  reverse_proxy /rpc/* postgrest:3000
+	reverse_proxy /api/* postgrest:3000
+	reverse_proxy /rpc/* postgrest:3000
 }
