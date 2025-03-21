@@ -4,9 +4,9 @@ services:
       - ./postgres/init-scripts:/docker-entrypoint-initdb.d:ro
 
   sqitch:
-    working_dir: /data
     volumes:
-      - ./migrations:/workspace
+      - ./migrations:/repo
+      - ./migrations:/repo
 
   caddy:
     volumes:

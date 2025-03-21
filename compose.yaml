@@ -5,7 +5,7 @@ services:
   postgres:
     image: postgres:17
     volumes:
-      - postgres_data:/var/lib/postgresql/data:Z
+      - postgres_data:/var/lib/postgresql/data:rw
     command: postgres -c custom.authenticator_password=$PG_AUTHENTICATOR_PASSWORD
     environment:
       POSTGRES_USER: $PG_USER
@@ -27,9 +27,9 @@ services:
     volumes:
       # The data dir is used to store the sqitch_done file, on local and remote
       # host. The file tells docker compose that the migrations have completed.
-      - sqitch_data:/data
+      - sqitch_data:/data:rw
     entrypoint: ""
-    command: sh -c "sqitch deploy && touch /workspace/sqitch_done"
+    command: sh -c "sqitch deploy && touch /data/sqitch_done"
     healthcheck:
       test: ["CMD", "test", "-f", "/data/sqitch_done"]
       interval: 5s
@@ -39,6 +39,8 @@ services:
     image: postgrest/postgrest:v12.2.8
     depends_on:
       postgres:
+        condition: service_healthy
+      sqitch:
         condition: service_healthy
     environment:
       PGRST_APP_SETTINGS_JWT_EXP: $JWT_EXPIRY
@@ -51,13 +53,17 @@ services:
 
   caddy:
     image: caddy:2
-    depends_on: [postgrest]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      sqitch:
+        condition: service_healthy
     ports:
       - $CADDY_PORT:80
       - 443:443
     volumes:
-      - caddy_data:/data
-      - caddy_config:/config
+      - caddy_data:/data:rw
+      - caddy_config:/config:rw
 
 volumes:
   postgres_data:
