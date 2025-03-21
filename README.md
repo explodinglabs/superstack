@@ -7,15 +7,16 @@
   <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a>
 </p>
 
-Minibase is an **application backend** with a Postgres base, an API gateway,
-and a middleware layer of satellite services that can be swapped out as needed.
+Minibase is an **application backend** with a Postgres base accessed through a
+REST API and a reverse proxy.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/minibasehq/minibase/blob/main/.images/architecture-light.svg?raw=true#gh-light-mode-only" />
   <img alt="Architecture diagram" src="https://github.com/minibasehq/minibase/blob/main/.images/architecture-dark.svg?raw=true#gh-dark-mode-only" />
 </p>
 
-Being more lightweight than the alternatives, multiple applications can be
+The middleware layer of services can be added to as needed. Being more
+lightweight than the alternatives like Supabase, multiple applications can be
 brought up locally for development.
 
 ## Installation
