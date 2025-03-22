@@ -7,7 +7,7 @@
   <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a>
 </p>
 
-Minibase is a Postgres-based **application backend** which is accessed through
+Minibase is an **application backend** with a Postgres base accessed through
 a REST API and a reverse proxy.
 
 <p align="center">
@@ -28,10 +28,6 @@ cp example.env .env
 docker compose up -d
 ```
 
-Test it with
-
-```sh
-curl localhost:8000/rest/
-```
+An Open API should be available at [localhost:8000/rest/](http://localhost:8000/rest/)
 
 <!-- See the [full documentation](https://github.com/explodinglabs/minibase/wiki). -->
