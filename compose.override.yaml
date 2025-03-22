@@ -6,7 +6,10 @@ services:
   sqitch:
     volumes:
       - ./migrations:/repo
-      - ./migrations:/repo
+      - ../sqitch-templates:/etc/sqitch/templates:ro
+    environment:
+      BASH_ENV: /etc/sqitch/templates/aliases.sh
+      SQITCH_TARGET: postgres://${PG_USER}:${PG_PASS}@postgres:5432/app
 
   caddy:
     volumes:

@@ -28,6 +28,10 @@ cp example.env .env
 docker compose up -d
 ```
 
-Test it with https://localhost/
+Test it with
 
-See the [full documentation](https://github.com/explodinglabs/minibase/wiki).
+```sh
+curl localhost:8000/rest/
+```
+
+<!-- See the [full documentation](https://github.com/explodinglabs/minibase/wiki). -->
