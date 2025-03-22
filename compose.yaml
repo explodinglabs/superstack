@@ -30,17 +30,11 @@ services:
       # host. The file tells docker compose that the migrations have completed.
       - sqitch_data:/data:rw
     entrypoint: ""
-    command: sh -c "sqitch deploy && touch /data/sqitch_done"
-    healthcheck:
-      test: ["CMD", "test", "-f", "/data/sqitch_done"]
-      interval: 5s
-      retries: 20
+    command: sqitch deploy
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
     depends_on:
-      postgres:
-        condition: service_healthy
       sqitch:
         condition: service_completed_successfully
     environment:
