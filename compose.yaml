@@ -46,10 +46,21 @@ services:
       PGRST_DB_USE_LEGACY_GUCS: false
       PGRST_JWT_SECRET: $JWT_SECRET
 
+  swagger-ui:
+    image: swaggerapi/swagger-ui:v5.20.1
+    ports:
+      - "8080:8080"
+    environment:
+      SWAGGER_JSON_URL: "http://localhost:8000/rest/"
+    depends_on:
+      - postgrest
+
   caddy:
     image: caddy:2
     depends_on:
       postgrest:
+        condition: service_started
+      swagger-ui:
         condition: service_started
     ports:
       - $CADDY_PORT:80
