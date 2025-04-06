@@ -5,7 +5,7 @@ services:
 
   sqitch:
     volumes:
-      - ./migrations:/repo
+      - ./migrations:/repo:rw
       - ../sqitch-templates:/etc/sqitch/templates:ro
     environment:
       BASH_ENV: /etc/sqitch/templates/aliases.sh
@@ -13,6 +13,6 @@ services:
 
   caddy:
     volumes:
-      - ./caddy/conf:/etc/caddy
+      - ./caddy/conf:/etc/caddy:ro
     environment:
       - CADDY_AUTO_HTTPS=off
