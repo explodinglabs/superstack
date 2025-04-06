@@ -7,8 +7,8 @@
   <a href="https://github.com/minibasehq/minibase/discussions">Discussions</a>
 </p>
 
-Minibase is an **application backend** with a Postgres base accessed through
-a REST API and a reverse proxy.
+Minibase is an **application backend** with a PostgreSQL base, and providing a
+REST API accessed via a reverse proxy.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/minibasehq/minibase/blob/main/.images/architecture-light.svg?raw=true#gh-light-mode-only" />
