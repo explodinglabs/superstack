@@ -1,5 +1,6 @@
 <p align="center">
-  <img alt="Minibase logo" height="35" src="https://github.com/minibasehq/minibase/blob/main/.images/logo.png?raw=true" />
+  <img alt="Minibase logo" height="35" src="https://github.com/minibasehq/minibase/blob/main/.images/logo-light.png?raw=true#gh-light-mode-only" />
+  <img alt="Minibase logo" height="35" src="https://github.com/minibasehq/minibase/blob/main/.images/logo-dark.png?raw=true#gh-dark-mode-only" />
 </p>
 
 <p align="center">
