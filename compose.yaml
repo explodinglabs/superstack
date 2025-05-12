@@ -18,24 +18,19 @@ services:
       timeout: 5s
       retries: 10
 
-  sqitch:
-    image: sqitch/sqitch
-    user: root
+  iko:
+    image: ghcr.io/explodinglabs/iko:0.1.0
     depends_on:
       postgres:
         condition: service_healthy
-    restart: "no" # Ensures Sqitch runs once and stops
-    volumes:
-      # The data dir is used to store the sqitch_done file, on local and remote
-      # host. The file tells docker compose that the migrations have completed.
-      - sqitch_data:/data:rw
+    restart: "no" # Run once and stop
     entrypoint: ""
     command: sqitch deploy
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
     depends_on:
-      sqitch:
+      iko:
         condition: service_completed_successfully
     environment:
       PGRST_APP_SETTINGS_JWT_EXP: $JWT_EXPIRY
@@ -71,6 +66,5 @@ services:
 
 volumes:
   postgres_data:
-  sqitch_data:
   caddy_data:
   caddy_config:
