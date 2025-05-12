@@ -3,12 +3,14 @@ services:
     volumes:
       - ./postgres/init-scripts:/docker-entrypoint-initdb.d:ro
 
-  sqitch:
+  iko:
+    tty: true
+    stdin_open: true
+    # user: root # So it can write to ./migrations regardless of host permissions
     volumes:
       - ./migrations:/repo:rw
-      - ../sqitch-templates:/etc/sqitch/templates:ro
+      - ./scripts:/scripts:rw
     environment:
-      BASH_ENV: /etc/sqitch/templates/aliases.sh
       SQITCH_TARGET: postgres://${PG_USER}:${PG_PASS}@postgres:5432/app
 
   caddy:
