@@ -39,6 +39,4 @@ docker compose up
 ```
 
 A Swagger UI is available at
-[localhost:8000/rest/](http://localhost:8000/rest/)
-
-##
+[localhost:8000/rest/](http://localhost:8000/openapi/)
