@@ -20,21 +20,12 @@ multiple instances can be brought up locally for development.
 
 ## Installation
 
-Clone Minibase:
+Clone this repository and start Minibase:
 
 ```sh
-git clone --depth 1 https://github.com/explodinglabs/minibase myapp && cd myapp
-```
-
-Create a config file:
-
-```sh
+git clone --depth 1 https://github.com/explodinglabs/minibase myapp
+cd myapp
 cp example.env .env
-```
-
-Start Minibase:
-
-```sh
 docker compose up
 ```
 
