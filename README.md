@@ -15,8 +15,8 @@ API accessed through a reverse proxy. It's a lightweight Supabase alternative.
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/.images/architecture-dark.svg?raw=true#gh-dark-mode-only" />
 </p>
 
-The middleware layer of services can be swapped out as needed. Being
-lightweight, multiple instances can be brought up locally for development.
+The middleware layer of services can be built out as needed. Being lightweight,
+multiple instances can be brought up locally for development.
 
 ## Installation
 
