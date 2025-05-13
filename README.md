@@ -16,7 +16,7 @@ API accessed through a reverse proxy. It's a lightweight Supabase alternative.
 </p>
 
 The middleware layer of services can be swapped out as needed. Being
-lightweight multiple instances can be brought up locally for development.
+lightweight, multiple instances can be brought up locally for development.
 
 ## Installation
 
