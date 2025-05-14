@@ -30,4 +30,32 @@ docker compose up
 ```
 
 A Swagger UI is available at
-[localhost:8000/rest/](http://localhost:8000/openapi/)
+[localhost:8000/openapi/](http://localhost:8000/openapi/)
+
+## Usage
+
+Minibase uses [Iko](https://github.com/explodinglabs/iko) for database schema
+migrations. During startup, a few migrations were made to create roles required
+by PostgREST to work. From here you can start iterating on the database for
+your needs.
+
+Create an Iko command in your shell:
+
+```sh
+iko() { docker compose run --rm --no-deps iko bash -c '"$@"' -- "$@" }
+```
+
+Ensure it's working with:
+
+```sh
+$ iko check
+Checking db:postgres://admin@postgres:5432/app
+Check successful
+```
+
+## Start over
+
+```sh
+docker compose down --volumes
+docker compose up
+```
