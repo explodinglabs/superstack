@@ -25,7 +25,7 @@ services:
         condition: service_healthy
     restart: "no" # Run once and stop
     entrypoint: ""
-    command: sqitch deploy
+    command: sqitch status
 
   postgrest:
     image: postgrest/postgrest:v12.2.8

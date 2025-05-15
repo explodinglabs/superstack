@@ -1,15 +1,10 @@
 services:
-  postgres:
-    volumes:
-      - ./postgres/init-scripts:/docker-entrypoint-initdb.d:ro
-
   iko:
     tty: true
     stdin_open: true
-    # user: root # So it can write to ./migrations regardless of host permissions
     volumes:
       - ./migrations:/repo:rw
-      - ./scripts:/scripts:rw
+      - ./scripts:/scripts:ro
     environment:
       SQITCH_TARGET: postgres://${PG_USER}:${PG_PASS}@postgres:5432/app
 
