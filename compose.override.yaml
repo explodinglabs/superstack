@@ -5,8 +5,16 @@ services:
     volumes:
       - ./migrations:/repo:rw
       - ./scripts:/scripts:ro
-    environment:
-      SQITCH_TARGET: postgres://${PG_USER}:${PG_PASS}@postgres:5432/app
+    command: >
+      /bin/sh -c '
+        set -e
+        if [ ! -f /repo/.sqitch-initialised ]; then
+          sqitch init --target=postgres://${PG_USER}:${PG_PASS}@postgres:5432/app myapp
+          bash /scripts/postgrest-init.sh
+          sqitch deploy --verify
+          touch /repo/.sqitch-initialised
+        fi
+      '
 
   caddy:
     volumes:
