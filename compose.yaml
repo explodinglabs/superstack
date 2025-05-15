@@ -6,11 +6,11 @@ services:
     image: postgres:17
     volumes:
       - postgres_data:/var/lib/postgresql/data:rw
-    command: postgres -c custom.authenticator_password=$PG_AUTHENTICATOR_PASSWORD
     environment:
       POSTGRES_USER: $PG_USER
       POSTGRES_PASSWORD: $PG_PASS
       POSTGRES_DB: app
+    command: postgres -c custom.authenticator_password=$POSTGREST_AUTHENTICATOR_PASS
     healthcheck:
       test:
         ["CMD", "pg_isready", "-U", $PG_USER, "-h", "localhost", "-d", "app"]
@@ -23,9 +23,11 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    environment:
+      POSTGREST_AUTHENTICATOR_PASS: $POSTGREST_AUTHENTICATOR_PASS
     restart: "no" # Run once and stop
     entrypoint: ""
-    command: sqitch status
+    command: ""
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
@@ -37,14 +39,12 @@ services:
       PGRST_APP_SETTINGS_JWT_SECRET: $JWT_SECRET
       PGRST_DB_ANON_ROLE: anon
       PGRST_DB_SCHEMAS: api
-      PGRST_DB_URI: postgres://authenticator:${PG_AUTHENTICATOR_PASSWORD}@postgres:5432/app
+      PGRST_DB_URI: postgres://authenticator:${POSTGREST_AUTHENTICATOR_PASS}@postgres:5432/app
       PGRST_DB_USE_LEGACY_GUCS: false
       PGRST_JWT_SECRET: $JWT_SECRET
 
   swagger-ui:
     image: swaggerapi/swagger-ui:v5.20.1
-    ports:
-      - "8080:8080"
     environment:
       SWAGGER_JSON_URL: "http://localhost:8000/rest/"
     depends_on:
