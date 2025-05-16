@@ -26,8 +26,16 @@ services:
     environment:
       POSTGREST_AUTHENTICATOR_PASS: $POSTGREST_AUTHENTICATOR_PASS
     restart: "no" # Run once and stop
-    entrypoint: ""
-    command: ""
+    command: >
+      /bin/sh -c '
+        set -e
+        if [ ! -f /repo/.sqitch-initialised ]; then
+          sqitch init --engine pg --target=postgres://${PG_USER}:${PG_PASS}@postgres:5432/app myapp
+          bash /scripts/postgrest-init.sh
+          sqitch deploy --verify
+          touch /repo/.sqitch-initialised
+        fi
+      '
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
@@ -35,7 +43,7 @@ services:
       iko:
         condition: service_completed_successfully
     environment:
-      PGRST_APP_SETTINGS_JWT_EXP: $JWT_EXPIRY
+      PGRST_APP_SETTINGS_JWT_EXP: 3600
       PGRST_APP_SETTINGS_JWT_SECRET: $JWT_SECRET
       PGRST_DB_ANON_ROLE: anon
       PGRST_DB_SCHEMAS: api
