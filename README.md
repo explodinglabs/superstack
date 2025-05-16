@@ -65,7 +65,7 @@ To deploy your app to other environments, you have a few options.
 
 1. Version control
 
-- Commit your repository
+- Commit the migrations to your repository
 - Push
 - Pull changes on the remote server
 - docker compose run --rm iko deploy
