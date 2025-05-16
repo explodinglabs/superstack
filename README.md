@@ -7,21 +7,24 @@
   Minibase
 </h1>
 
-_Minibase_ is a lightweight **backend stack** that combines PostgreSQL, Iko,
-PostgREST and Caddy, with Iko migrations. It spins up with a single `docker compose up` and gives you instant API access to your database. Like Firebase,
-Supabase, and Appwrite, it's a backend platform — but with a Unix philosophy:
-minimal, composable, and transparent.
+_Minibase_ is a lightweight **backend stack** that combines PostgreSQL with a
+set of middleware services — starting with PostgREST — exposed through a
+gateway powered by Caddy.
+
+<p align="center">
+  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/images/architecture-light.svg?raw=true#gh-light-mode-only" />
+  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/images/architecture-dark.svg?raw=true#gh-dark-mode-only" />
+</p>
+
+It spins up with a single `docker compose up` and gives you instant API access
+to your database. Like Firebase, Supabase and Appwrite, it's a backend platform
+— but with a Unix philosophy: minimal, composable, and transparent.
 
 **Who Minibase Is For:**
 
 - Developers who want control and visibility over their backend.
 - Builders who value fast iteration, low overhead, and Unix-style modularity.
 - People who find Firebase/Supabase/Appwrite too heavy, opaque, or opinionated.
-
-<p align="center">
-  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/images/architecture-light.svg?raw=true#gh-light-mode-only" />
-  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/images/architecture-dark.svg?raw=true#gh-dark-mode-only" />
-</p>
 
 The middleware layer of services (PostgREST and Swagger UI) can be built out as
 needed. Being lightweight, multiple instances can be brought up locally for
