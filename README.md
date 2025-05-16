@@ -35,14 +35,13 @@ A Swagger UI is available at
 ## Usage
 
 Minibase uses [Iko](https://github.com/explodinglabs/iko) for database schema
-migrations. During startup, a few migrations were made to create roles required
-by PostgREST to work. From here you can start iterating on the database for
-your needs.
+migrations. On startup, a few migrations are made for PostgREST to work. From
+there, you can start iterating on the database for your own needs.
 
-Create an Iko command in your shell:
+Create an Iko command in your local shell:
 
 ```sh
-iko() { docker compose run --rm --no-deps iko bash -c '"$@"' -- "$@" }
+iko() { docker compose run --rm -it --no-deps -v ${PWD}/migrations:/repo:rw -v ${PWD}/scripts:/scripts:ro -v ${PWD}/caddy/conf:/etc/caddy:ro --env CADDY_AUTO_HTTPS=off iko "$@" }
 ```
 
 Ensure it's working with:
@@ -53,9 +52,28 @@ Checking db:postgres://admin@postgres:5432/app
 Check successful
 ```
 
-## Start over
+## To start over
 
 ```sh
 docker compose down --volumes
 docker compose up
 ```
+
+## Environments
+
+To deploy your app to other environments, you have a few options.
+
+1. Version control
+
+- Commit your repository
+- Push
+- Pull changes on the remote server
+- docker compose run --rm iko deploy
+
+2. Build your container image with migrations included
+
+A Dockerfile is included which you can use to build an image of your
+migrations.
+
+- Build your custom Iko image
+- Update the compose.yaml to use your
