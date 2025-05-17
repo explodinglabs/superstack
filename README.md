@@ -8,7 +8,7 @@
 </h1>
 
 _Minibase_ is a lightweight **backend stack**. It combines PostgreSQL with a
-set of middleware services — starting with a REST API, PostgREST — that can be
+set of middleware services — starting with a PostgREST REST API and Swagger — that can be
 built out as needed. The services are exposed through a gateway (Caddy).
 
 <p align="center">
