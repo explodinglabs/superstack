@@ -8,12 +8,12 @@
 </h1>
 
 _Minibase_ is a lightweight **backend stack**. It combines PostgreSQL with a
-set of middleware services — starting with a PostgREST and Swagger UI — that
-can be built out as needed. The services are exposed through a gateway (Caddy).
+set of services — PostgREST and Swagger UI to begin with — that can be built
+out as needed. The services are exposed through a gateway (Caddy).
 
 ```mermaid
 flowchart TD
-    Caddy["<h3>Caddy</h3><i>API Gateway<i>"]
+    Caddy["<h4>Caddy</h4><i>API Gateway<i>"]
     Caddy --> Middleware["<h3>Services</h3><i>PostgREST, Swagger UI + Add more</i>"]
     Middleware --> Postgres["<h3>Postgres</h3>"]
 ```
