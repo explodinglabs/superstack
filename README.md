@@ -13,8 +13,8 @@ built out as needed. The services are exposed through a gateway (Caddy).
 
 ```mermaid
 flowchart TD
-    Caddy["<h3>Caddy</h3>API Gateway"]
-    Caddy --> Middleware["<h3>Services</h3><small><i>PostgREST, Swagger UI + Add more</i></small>"]
+    Caddy["<h3>Caddy</h3><small>API Gateway<small>"]
+    Caddy --> Middleware["<h3>Services</h3><small>PostgREST, Swagger UI + Add more</small>"]
     Middleware --> Postgres
 ```
 
