@@ -62,11 +62,10 @@ Checking db:postgres://admin@postgres:5432/app
 Check successful
 ```
 
-## To start over
+## Nuke everything
 
 ```sh
 docker compose down --volumes
-docker compose up
 ```
 
 ## Environments
