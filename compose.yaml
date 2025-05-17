@@ -30,8 +30,7 @@ services:
     volumes:
       - ./migrations:/repo:rw
     restart: "no" # Run once and stop
-    # Command is inlined to avoid needing a mounted volume. Potentially have a
-    # custom Iko image for Minibase in the future with the script baked in.
+    # Command is inlined to avoid needing a mounted scripts volume.
     command: >
       /bin/bash -c '
         set -euo pipefail

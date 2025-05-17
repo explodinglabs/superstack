@@ -66,6 +66,7 @@ Check successful
 
 ```sh
 docker compose down --volumes
+rm -rf migrations
 ```
 
 ## Environments
