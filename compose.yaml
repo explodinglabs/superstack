@@ -24,14 +24,23 @@ services:
       postgres:
         condition: service_healthy
     environment:
+      PG_USER: $PG_USER
+      PG_PASS: $PG_PASS
       POSTGREST_AUTHENTICATOR_PASS: $POSTGREST_AUTHENTICATOR_PASS
+    volumes:
+      - ./migrations:/repo:rw
     restart: "no" # Run once and stop
+    # Command is inlined to avoid needing a mounted volume. Potentially have a
+    # custom Iko image for Minibase in the future with the script baked in.
     command: >
-      /bin/sh -c '
-        set -e
+      /bin/bash -c '
+        set -euo pipefail
         if [ ! -f /repo/.sqitch-initialised ]; then
           sqitch init --engine pg --target=postgres://${PG_USER}:${PG_PASS}@postgres:5432/app myapp
-          bash /scripts/postgrest-init.sh
+          create_login_role authenticator $POSTGREST_AUTHENTICATOR_PASS
+          create_role anon
+          grant_role_membership authenticator anon
+          create_schema api
           sqitch deploy --verify
           touch /repo/.sqitch-initialised
         fi
@@ -74,5 +83,5 @@ services:
 
 volumes:
   postgres_data:
-  caddy_data:
   caddy_config:
+  caddy_data:

@@ -1,4 +1,0 @@
-create_login_role authenticator $POSTGREST_AUTHENTICATOR_PASS
-create_role anon
-grant_role_membership authenticator anon
-create_schema api
