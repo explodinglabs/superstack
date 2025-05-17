@@ -13,9 +13,9 @@ out as needed. The services are exposed through a gateway (Caddy).
 
 ```mermaid
 flowchart TD
-    Caddy["<h4>Caddy</h4><i>API Gateway<i>"]
-    Caddy --> Middleware["<h3>Services</h3><i>PostgREST, Swagger UI + Add more</i>"]
-    Middleware --> Postgres["<h3>Postgres</h3>"]
+    Caddy["<b>Caddy</b><i>API Gateway<i>"]
+    Caddy --> Middleware["<b>Services</b><i>PostgREST, Swagger UI + Add more</i>"]
+    Middleware --> Postgres["<b>Postgres</b>"]
 ```
 
 It spins up with a single `docker compose up`, and being lightweight,
