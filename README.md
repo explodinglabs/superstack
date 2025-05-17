@@ -7,6 +7,10 @@
   Minibase
 </h1>
 
+<p align="center">
+  <i>Minimal, composable, and transparent</i>
+</p>
+
 _Minibase_ is a lightweight **backend stack**. It combines PostgreSQL with a
 set of services — PostgREST and Swagger UI to begin with — that can be built
 out as needed. The services are exposed through a gateway (Caddy).
@@ -18,11 +22,8 @@ flowchart TD
     Middleware --> Postgres["<b>Postgres</b>"]
 ```
 
-It spins up with a single `docker compose up`, and being lightweight,
+Minibase spins up with a single `docker compose up`, and being lightweight,
 **multiple instances can be brought up locally for development**.
-
-Like Firebase, Supabase and Appwrite, it's a backend platform — but with a Unix
-philosophy: _minimal, composable, and transparent_.
 
 **Who Minibase Is For:**
 
