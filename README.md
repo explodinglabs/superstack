@@ -18,11 +18,6 @@ flowchart TD
     Middleware --> Postgres
 ```
 
-<p align="center">
-  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/images/architecture-light.svg?raw=true#gh-light-mode-only" />
-  <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/images/architecture-dark.svg?raw=true#gh-dark-mode-only" />
-</p>
-
 It spins up with a single `docker compose up`, and being lightweight,
 **multiple instances can be brought up locally for development**.
 
