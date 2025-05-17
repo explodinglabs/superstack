@@ -8,28 +8,29 @@
 </h1>
 
 <p align="center">
-  <i>Minimal, composable, and transparent</i>
+  <i>Minimal, composable, transparent</i>
 </p>
 
-_Minibase_ is a lightweight **backend stack**. It combines PostgreSQL with a
-set of services — PostgREST and Swagger UI to begin with — that can be built
-out as needed. The services are exposed through a gateway (Caddy).
+_Minibase_ is a **lightweight backend** designed for rapid application
+development. It combines PostgreSQL with a set of modular services — starting
+with PostgREST and Swagger UI — that you can extend as needed. All services are
+exposed through a fast, modern gateway powered by Caddy.
 
 ```mermaid
 flowchart TD
-    Caddy["<b>Caddy</b><br><i>API Gateway<i>"]
-    Caddy --> Middleware["<b>Services</b><br><i>PostgREST, Swagger UI + Add more</i>"]
+    Caddy["<b>Caddy</b><br><i>API Gateway</i>"]
+    Caddy --> Middleware["<b>Services</b><br><i>PostgREST, Swagger UI + more</i>"]
     Middleware --> Postgres["<b>Postgres</b>"]
 ```
 
-Minibase spins up with a single `docker compose up`, and being lightweight,
-**multiple instances can be brought up locally for development**.
+Minibase spins up with a single `docker compose up`. Because it's lightweight,
+you can run multiple instances locally for testing and development.
 
 **Who Minibase Is For:**
 
-- Developers who want control and visibility over their backend.
+- Developers who want full control and transparency over their backend.
 - Builders who value fast iteration, low overhead, and Unix-style modularity.
-- People who find Firebase/Supabase/Appwrite too heavy, opaque, or opinionated.
+- Teams who find Firebase, Supabase, or Appwrite too heavy, opaque, or locked-in.
 
 ## Installation
 
