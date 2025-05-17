@@ -8,20 +8,20 @@
 </h1>
 
 _Minibase_ is a lightweight **backend stack** that combines PostgreSQL with a
-set of middleware services — starting with PostgREST — exposed through a
-gateway (Caddy).
+set of middleware services — starting with a PostgREST REST API — exposed
+through a gateway (Caddy). The middleware layer of services can be built out as
+needed.
 
 <p align="center">
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/images/architecture-light.svg?raw=true#gh-light-mode-only" />
   <img alt="Architecture diagram" src="https://github.com/explodinglabs/minibase/blob/main/images/architecture-dark.svg?raw=true#gh-dark-mode-only" />
 </p>
 
-The middleware layer of services can be built out as needed.
+It spins up with a single `docker compose up`, and being lightweight,
+**multiple instances can be brought up locally for development**.
 
-It spins up with a single `docker compose up` and gives you instant API access
-to your database. Being lightweight, **multiple instances can be brought up
-locally for development**. Like Firebase, Supabase and Appwrite, it's a backend
-platform — but with a Unix philosophy: _minimal, composable, and transparent_.
+Like Firebase, Supabase and Appwrite, it's a backend platform — but with a Unix
+philosophy: _minimal, composable, and transparent_.
 
 **Who Minibase Is For:**
 
