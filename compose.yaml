@@ -30,7 +30,6 @@ services:
     volumes:
       - ./migrations:/repo:rw
       - ./scripts:/scripts:ro
-      - ./caddy/conf:/etc/caddy:ro
     restart: "no" # Run once and stop
     # Command is inlined to avoid needing a mounted scripts volume.
     command: >
