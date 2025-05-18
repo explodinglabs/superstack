@@ -40,7 +40,7 @@ Clone this repository and start Minibase:
 git clone --depth 1 https://github.com/explodinglabs/minibase myapp
 cd myapp
 cp example.env .env
-docker compose up
+docker compose --env CADDY_AUTO_HTTPS=off up
 ```
 
 Once it's running, open
@@ -53,9 +53,14 @@ Minibase uses [Iko](https://github.com/explodinglabs/iko) for database schema
 migrations. On startup, a few base migrations are applied so PostgREST can
 function. From there, you're free to evolve the database however you like.
 
+A `bin/iko` script is included, and since you'll be running it often, I
+recommend creating an alias to it:
+
 ```sh
 alias iko=./bin/iko
 ```
+
+Test it's working:
 
 ```sh
 $ iko check
@@ -63,7 +68,7 @@ Checking db:postgres://admin@postgres:5432/app
 Check successful
 ```
 
-See [Iko's documentation](https://github.com/explodinglabs/iko).
+See [Iko's commands](https://github.com/explodinglabs/iko).
 
 ## Nuke everything and start over
 
