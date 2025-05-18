@@ -43,22 +43,19 @@ cp example.env .env
 docker compose up
 ```
 
-A Swagger UI is available at
-[localhost:8000/openapi/](http://localhost:8000/openapi/)
+Once it's running, open
+[localhost:8000/openapi/](http://localhost:8000/openapi/) to view the Swagger
+UI and interact with your API.
 
 ## Usage
 
 Minibase uses [Iko](https://github.com/explodinglabs/iko) for database schema
-migrations. On startup, a few migrations are made for PostgREST to work. From
-there, you can start iterating on the database for your own needs.
-
-Create an Iko command in your local shell:
+migrations. On startup, a few base migrations are applied so PostgREST can
+function. From there, you're free to evolve the database however you like.
 
 ```sh
-iko() { docker compose run --rm -it --no-deps -v ${PWD}/migrations:/repo:rw -v ${PWD}/scripts:/scripts:ro -v ${PWD}/caddy/conf:/etc/caddy:ro --env CADDY_AUTO_HTTPS=off iko "$@" }
+alias iko=./bin/iko
 ```
-
-Ensure it's working with:
 
 ```sh
 $ iko check
@@ -66,36 +63,11 @@ Checking db:postgres://admin@postgres:5432/app
 Check successful
 ```
 
-## Nuke everything
+See [Iko's documentation](https://github.com/explodinglabs/iko).
+
+## Nuke everything and start over
 
 ```sh
 docker compose down --volumes
 rm -rf migrations
 ```
-
-## Environments
-
-To deploy your app to other environments, you have a few options.
-
-### 1. Version control
-
-- Commit the migrations to your repository
-- Push
-- Pull changes on the remote server
-- `docker compose run --rm iko deploy`
-
-### 2. Build your container image with migrations included
-
-- Build a custom Iko image using the Dockerfile included in this repo just for
-  this purpose: `docker build -t yourrepo/youriko .`
-- `docker push yourrepo/youriko`
-
-Then on the remote server:
-
-- `docker pull yourrepo/youriko`
-- Update the compose.yaml to use your Iko image
-- `docker compose run --rm iko deploy`
-
-### 3. Copy migrations to remote
-
-This is another option.
