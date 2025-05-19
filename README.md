@@ -61,15 +61,15 @@ Run Iko commands like this:
 ./bin/iko check
 ```
 
-To avoid typing ./bin/iko repeatedly, you can create an alias in your shell:
+To avoid typing `./bin/iko` repeatedly, you can create an alias in your shell:
 
 ```sh
 alias iko=./bin/iko
 ```
 
 > **Note:** This iko script differs from the standalone Iko CLI which runs via
-> docker run — the Minibase wrapper uses docker compose run to integrate with
-> Compose networking.
+> `docker run` — the Minibase wrapper uses `docker compose run` to integrate
+> with Minibase's Compose networking.
 
 See [Iko's commands]() for the full list of available commands.
 
