@@ -7,10 +7,6 @@
   Minibase
 </h1>
 
-<p align="center">
-  <i>Minimal, composable, transparent</i>
-</p>
-
 _Minibase_ is a **lightweight backend** designed for rapid application
 development. It combines PostgreSQL with a set of modular services — starting
 with PostgREST and Swagger UI — that you can extend as needed. All services are
