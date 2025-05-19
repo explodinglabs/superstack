@@ -45,26 +45,33 @@ UI and interact with your API.
 
 ## Usage
 
+### Iko in Minibase
+
 Minibase uses [Iko](https://github.com/explodinglabs/iko) for database schema
 migrations. On startup, a few base migrations are applied so PostgREST can
-function. From there, you're free to evolve the database however you like.
+function. After that, you’re free to evolve the database however you like.
 
-A `bin/iko` script is included, and since you'll be running it often, I
-recommend creating an alias to it:
+Minibase includes a wrapper script `bin/iko` that runs the Iko CLI inside
+Docker Compose’s network, allowing it to connect properly to the `postgres`
+container.
+
+Run Iko commands like this:
+
+```sh
+./bin/iko check
+```
+
+To avoid typing ./bin/iko repeatedly, you can create an alias in your shell:
 
 ```sh
 alias iko=./bin/iko
 ```
 
-Test it's working:
+> **Note:** This iko script differs from the standalone Iko CLI which runs via
+> docker run — the Minibase wrapper uses docker compose run to integrate with
+> Compose networking.
 
-```sh
-$ iko check
-Checking db:postgres://admin@postgres:5432/app
-Check successful
-```
-
-See [Iko's commands](https://github.com/explodinglabs/iko).
+See [Iko's commands]() for the full list of available commands.
 
 ## Nuke everything and start over
 
