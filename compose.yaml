@@ -27,9 +27,6 @@ services:
       PG_USER: $PG_USER
       PG_PASS: $PG_PASS
       POSTGREST_AUTHENTICATOR_PASS: $POSTGREST_AUTHENTICATOR_PASS
-    volumes:
-      - ./migrations:/repo:rw
-      - ./scripts:/scripts:ro
     restart: "no" # Run once and stop
     # Command is inlined to avoid needing a mounted scripts volume.
     command: >
@@ -48,6 +45,9 @@ services:
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
+    build:
+      context: .
+      dockerfile: iko.Dockerfile
     depends_on:
       iko:
         condition: service_completed_successfully
@@ -69,6 +69,9 @@ services:
 
   caddy:
     image: caddy:2
+    build:
+      context: .
+      dockerfile: caddy.Dockerfile
     depends_on:
       postgrest:
         condition: service_started
@@ -81,9 +84,7 @@ services:
       CADDY_AUTO_HTTPS: $CADDY_AUTO_HTTPS
     volumes:
       - caddy_data:/data:rw
-      - caddy_config:/config:rw
 
 volumes:
   postgres_data:
-  caddy_config:
   caddy_data:
