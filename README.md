@@ -4,10 +4,10 @@
 </p>
 
 <h1 align="center">
-  Lightstack
+  SuperStack
 </h1>
 
-_Lightstack_ is a **minimal backend** designed for rapid application
+_SuperStack_ is a **minimal backend** designed for rapid application
 development. It combines PostgreSQL with a set of modular services — starting
 with PostgREST and Swagger UI — that you can extend as needed. All services are
 exposed through a Caddy gateway.
