@@ -1,1 +1,9 @@
 .env
+migrations/.iko-initialised
+*.log
+*.tmp
+*.swp
+*.bak
+.vscode/
+.idea/
+.DS_Store
