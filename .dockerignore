@@ -7,3 +7,12 @@ __pycache__/
 Dockerfile
 .dockerignore
 README.md
+
+*.log
+*.tmp
+*.swp
+
+# Ignore editor/IDE files
+.vscode/
+.idea/
+.DS_Store
