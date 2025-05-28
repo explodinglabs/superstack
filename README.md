@@ -15,8 +15,8 @@ exposed through a fast, modern gateway powered by Caddy.
 ```mermaid
 flowchart TD
     Caddy["<b>Caddy</b><br><i>API Gateway</i>"]
-    Caddy --> Middleware["<b>Services</b><br><i>PostgREST, Swagger UI + more</i>"]
-    Middleware --> Postgres["<b>Postgres</b>"]
+    Caddy --> Services["<b>Services</b><br><i>PostgREST, Swagger UI + more</i>"]
+    Services --> Postgres["<b>Postgres</b>"]
 ```
 
 Minibase spins up with a single `docker compose up`. Because it's lightweight,
@@ -51,6 +51,10 @@ function. After that, you’re free to evolve the database however you like.
 
 A wrapper script is included at `bin/iko`, that runs the Iko CLI inside Docker
 Compose’s network, allowing it to connect properly to the Postgres container.
+
+```sh
+echo 'export PATH="${PWD}/bin:$PATH"' >> ~/.bashrc
+```
 
 Run Iko commands like this:
 
