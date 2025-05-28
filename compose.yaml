@@ -20,6 +20,9 @@ services:
 
   iko:
     image: ghcr.io/explodinglabs/iko:0.1.0
+    build:
+      context: .
+      dockerfile: iko.Dockerfile
     depends_on:
       postgres:
         condition: service_healthy
@@ -45,9 +48,6 @@ services:
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
-    build:
-      context: .
-      dockerfile: iko.Dockerfile
     depends_on:
       iko:
         condition: service_completed_successfully
