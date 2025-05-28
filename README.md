@@ -26,9 +26,10 @@ docker compose up
 
 ## Who It's For
 
-- Developers who want full control and transparency over their backend.
-- Builders who value fast iteration, low overhead, and Unix-style modularity.
-- Teams who find Firebase, Supabase, or Appwrite too heavy, opaque, or locked-in.
+- Solo developers who want full backend control
+- Startups building fast and lean
+- Teams that value transparency and modularity
+- Enterprises that prefer composable infrastructure
 
 ## 🚀 Quick Start
 
