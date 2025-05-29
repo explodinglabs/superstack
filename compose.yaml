@@ -28,7 +28,7 @@ services:
         condition: service_healthy
     environment:
       PG_USER: ${PG_USER:?PG_USER is required}
-      PG_PASS: $PG_PASS:?PG_PASS is required}
+      PG_PASS: ${PG_PASS:?PG_PASS is required}
       POSTGREST_AUTHENTICATOR_PASS: ${POSTGREST_AUTHENTICATOR_PASS:?POSTGREST_AUTHENTICATOR_PASS is required}
     restart: "no" # Run once and stop
     # Command is inlined to avoid needing a mounted scripts volume.
