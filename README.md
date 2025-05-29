@@ -39,4 +39,4 @@ your API in Swagger UI.
 
 ## 📚 Full Documentation
 
-👉 [https://explodinglabs.com/superstack/](https://explodinglabs.com/superstack/)
+👉 [explodinglabs.com/superstack/](https://explodinglabs.com/superstack/)
