@@ -25,7 +25,7 @@ flowchart TD
 
 ## 🚀 Quick Start
 
-Clone this repository and start SuperStack:
+Clone this repository to start SuperStack:
 
 ```sh
 git clone --depth 1 https://github.com/explodinglabs/superstack myapp
