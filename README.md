@@ -16,12 +16,6 @@ flowchart TD
     Services --> Postgres["<b>Postgres</b>"]
 ```
 
-Start everything with a single command:
-
-```sh
-docker compose up
-```
-
 ## Who It's For
 
 - **Solo developers** who want full backend control
