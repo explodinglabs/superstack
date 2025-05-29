@@ -5,7 +5,7 @@
 
 <h1 align="center">SuperStack</h1>
 
-_SuperStack_ is a minimal, transparent backend powered by PostgreSQL
+_SuperStack_ is a minimal application backend powered by PostgreSQL
 and PostgREST, routed through Caddy. Designed for speed,
 simplicity, and composability.
 
