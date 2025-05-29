@@ -3,12 +3,10 @@
   <img alt="SuperStack logo" height="150" src="https://github.com/explodinglabs/superstack/blob/main/images/logo-dark.png?raw=true#gh-dark-mode-only" />
 </p>
 
-<h1 align="center">
-  SuperStack
-</h1>
+<h1 align="center">SuperStack</h1>
 
 **SuperStack** is a minimal, transparent backend powered by PostgreSQL,
-PostgREST, and Swagger UI — all routed through Caddy. It’s designed for speed,
+PostgREST, and Swagger UI — all routed through Caddy. Designed for speed,
 simplicity, and composability.
 
 ```mermaid
@@ -18,7 +16,7 @@ flowchart TD
     Services --> Postgres["<b>Postgres</b>"]
 ```
 
-Everything runs with a single command:
+Start everything with a single command:
 
 ```sh
 docker compose up
@@ -42,5 +40,9 @@ cp example.env .env
 docker compose up
 ```
 
-Then open [localhost:8000/openapi/](https://localhost:8000/openapi/) to explore
+Then open [localhost:8000/openapi/](http://localhost:8000/openapi/) to explore
 your API in Swagger UI.
+
+## 📚 Full Documentation
+
+👉 [https://explodinglabs.com/superstack/](https://explodinglabs.com/superstack/)
