@@ -26,10 +26,10 @@ docker compose up
 
 ## Who It's For
 
-- Solo developers who want full backend control
-- Startups building fast and lean
-- Teams that value transparency and modularity
-- Enterprises that prefer composable infrastructure
+- **Solo developers** who want full backend control
+- **Startups** building fast and lean
+- **Teams** that value transparency and modularity
+- **Enterprises** that prefer composable infrastructure
 
 ## 🚀 Quick Start
 
