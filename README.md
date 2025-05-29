@@ -16,7 +16,7 @@ flowchart TD
     Services --> Postgres["<b>Postgres</b>"]
 ```
 
-## Who It's For
+## SuperStack Is Perfect For
 
 - **Solo developers** who want full backend control
 - **Startups** building fast and lean
