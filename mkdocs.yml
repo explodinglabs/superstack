@@ -10,7 +10,7 @@ theme:
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
-      primary: "amber"
+      primary: "blue"
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
@@ -18,7 +18,7 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: "amber"
+      primary: "blue"
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -26,7 +26,7 @@ theme:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: "amber"
+      primary: "blue"
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
