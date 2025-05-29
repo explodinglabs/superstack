@@ -5,8 +5,8 @@
 
 <h1 align="center">SuperStack</h1>
 
-**SuperStack** is a minimal, transparent backend powered by PostgreSQL,
-PostgREST, and Swagger UI — all routed through Caddy. Designed for speed,
+**SuperStack** is a minimal, transparent backend powered by PostgreSQL
+and PostgREST, routed through Caddy. Designed for speed,
 simplicity, and composability.
 
 ```mermaid
