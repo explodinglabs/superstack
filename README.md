@@ -16,7 +16,7 @@ flowchart TD
     Services --> Postgres["<b>Postgres</b>"]
 ```
 
-## Perfect For
+## 🎯 Perfect For
 
 - **Solo developers** who want full backend control
 - **Startups** building fast and lean
