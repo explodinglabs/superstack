@@ -27,8 +27,8 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      PG_USER: ${PG_USER:?PG_USER is required}
-      PG_PASS: ${PG_PASS:?PG_PASS is required}
+      SQITCH_TARGET: ${SQITCH_TARGET:?SQITCH_TARGET is required}
+      DOCKER_NETWORK: $DOCKER_NETWORK
       POSTGREST_AUTHENTICATOR_PASS: ${POSTGREST_AUTHENTICATOR_PASS:?POSTGREST_AUTHENTICATOR_PASS is required}
     restart: "no" # Run once and stop
     # Command is inlined to avoid needing a mounted scripts volume.
@@ -36,7 +36,7 @@ services:
       /bin/bash -c '
         set -euo pipefail
         if [ ! -f /repo/.iko-initialised ]; then
-          init --engine pg --target=postgres://${PG_USER}:${PG_PASS}@postgres:5432/app myapp
+          init myapp
           create_login_role authenticator $POSTGREST_AUTHENTICATOR_PASS
           create_role anon
           grant_role_membership authenticator anon
