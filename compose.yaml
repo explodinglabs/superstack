@@ -22,7 +22,7 @@ services:
     image: ghcr.io/explodinglabs/iko:0.1.0
     build:
       context: .
-      dockerfile: iko.Dockerfile
+      dockerfile: iko/Dockerfile
     depends_on:
       postgres:
         condition: service_healthy
@@ -71,7 +71,7 @@ services:
     image: caddy:2
     build:
       context: .
-      dockerfile: caddy.Dockerfile
+      dockerfile: caddy/Dockerfile
     depends_on:
       postgrest:
         condition: service_started
