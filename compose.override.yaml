@@ -1,8 +1,8 @@
 services:
   iko:
     volumes:
-      - ./migrations:/repo:rw
-      - ./scripts:/scripts:ro
+      - ./iko/migrations:/repo:rw
+      - ./iko/scripts:/scripts:ro
   caddy:
     volumes:
       - ./caddy/conf/Caddyfile:/etc/caddy/Caddyfile:ro

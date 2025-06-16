@@ -19,10 +19,9 @@ services:
       retries: 10
 
   iko:
-    image: ghcr.io/explodinglabs/iko:0.1.0
+    image: ghcr.io/explodinglabs/superstack-iko:0.1.0
     build:
-      context: .
-      dockerfile: iko/Dockerfile
+      context: ./iko
     depends_on:
       postgres:
         condition: service_healthy
@@ -31,20 +30,7 @@ services:
       DOCKER_NETWORK: $DOCKER_NETWORK
       POSTGREST_AUTHENTICATOR_PASS: ${POSTGREST_AUTHENTICATOR_PASS:?POSTGREST_AUTHENTICATOR_PASS is required}
     restart: "no" # Run once and stop
-    # Command is inlined to avoid needing a mounted scripts volume.
-    command: >
-      /bin/bash -c '
-        set -euo pipefail
-        if [ ! -f /repo/.iko-initialised ]; then
-          init myapp
-          create_login_role authenticator $POSTGREST_AUTHENTICATOR_PASS
-          create_role anon
-          grant_role_membership authenticator anon
-          create_schema api
-          deploy --verify
-          touch /repo/.iko-initialised
-        fi
-      '
+    command: bash /scripts/init.sh
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
@@ -68,10 +54,9 @@ services:
       - postgrest
 
   caddy:
-    image: caddy:2
+    image: ghcr.io/explodinglabs/superstack-caddy:0.1.0
     build:
-      context: .
-      dockerfile: caddy/Dockerfile
+      context: ./caddy
     depends_on:
       postgrest:
         condition: service_started
