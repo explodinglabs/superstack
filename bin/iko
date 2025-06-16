@@ -1,7 +1,13 @@
 #!/bin/bash
+set -euo pipefail
 
 if [[ $# -eq 0 ]]; then
   set -- shell
 fi
 
-docker compose run --rm -it --no-deps iko "$@"
+BASH_EXTRAS_ARG=""
+[ -f bash_extras ] && BASH_EXTRAS_ARG="--volume $PWD/bash_extras:/etc/bash_extras:ro"
+
+docker compose run --rm -it --no-deps \
+  $BASH_EXTRAS_ARG \
+  iko "$@"
