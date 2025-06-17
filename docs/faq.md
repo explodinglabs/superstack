@@ -1,3 +1,8 @@
+# How to nuke everything and start again?
+
+docker compose down --volumes
+rm -r iko/migrations
+
 # How to enable history in the Iko shell
 
 Add to your ikorc:
