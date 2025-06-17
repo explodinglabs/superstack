@@ -5,9 +5,10 @@ if [[ $# -eq 0 ]]; then
   set -- shell
 fi
 
-BASH_EXTRAS_ARG=""
-[ -f bash_extras ] && BASH_EXTRAS_ARG="--volume $PWD/bash_extras:/etc/bash_extras:ro"
+IKORC_ARG=""
+IKORC_PATH="${IKORC_PATH:-$HOME/.config/ikorc}"
+[ -f "$IKORC_PATH" ] && IKORC_ARG="-v $IKORC_PATH:/home/.ikorc:ro"
 
 docker compose run --rm -it --no-deps \
-  $BASH_EXTRAS_ARG \
+  $IKORC_ARG \
   iko "$@"
