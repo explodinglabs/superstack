@@ -27,7 +27,6 @@ services:
         condition: service_healthy
     environment:
       SQITCH_TARGET: ${SQITCH_TARGET:?SQITCH_TARGET is required}
-      DOCKER_NETWORK: $DOCKER_NETWORK
       POSTGREST_AUTHENTICATOR_PASS: ${POSTGREST_AUTHENTICATOR_PASS:?POSTGREST_AUTHENTICATOR_PASS is required}
     restart: "no" # Run once and stop
     command: bash /scripts/init.sh
