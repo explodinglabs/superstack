@@ -3,6 +3,8 @@
 docker compose down --volumes
 rm -r iko/migrations
 
+# How to install Postgres extensions?
+
 # How to enable history in the Iko shell
 
 Add to your ikorc:
