@@ -1,5 +1,4 @@
 .env
-migrations/.iko-initialised
 *.log
 *.tmp
 *.swp
@@ -7,3 +6,6 @@ migrations/.iko-initialised
 .vscode/
 .idea/
 .DS_Store
+iko/migrations/.iko-initialised
+iko/migrations/*
+!iko/migrations/.gitkeep
