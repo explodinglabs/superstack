@@ -1,12 +1,12 @@
 <p align="center">
-  <img alt="SuperStack logo" src="https://github.com/explodinglabs/superstack/blob/main/images/logo-light.png?raw=true" />
+  <img alt="SuperStack logo" src="https://github.com/explodinglabs/superstack/blob/main/logo.png?raw=true" />
 </p>
 
 <h1 align="center">SuperStack</h1>
 
-_SuperStack_ is a minimal application backend powered by PostgreSQL
-and PostgREST, routed through Caddy. Designed for speed,
-simplicity, and composability.
+_SuperStack_ is a minimal application backend powered by PostgreSQL and
+PostgREST, routed through Caddy. Designed for speed, simplicity, and
+composability.
 
 ```mermaid
 flowchart TD
