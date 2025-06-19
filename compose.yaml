@@ -3,40 +3,30 @@
 
 services:
   postgres:
-    image: postgres:17
+    image: ghcr.io/explodinglabs/superstack-postgres
+    build:
+      context: ./postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data:rw
     environment:
-      POSTGRES_USER: ${PG_USER:?PG_USER is required}
-      POSTGRES_PASSWORD: ${PG_PASS:?PG_PASS is required}
+      PGRST_AUTHENTICATOR_PASS: ${PGRST_AUTHENTICATOR_PASS:?PGRST_AUTHENTICATOR_PASS is required}
       POSTGRES_DB: app
+      PGRST_DB_SCHEMAS: $PGRST_DB_SCHEMAS
+      POSTGRES_PASSWORD: ${PG_PASS:?PG_PASS is required}
+      POSTGRES_USER: ${PG_USER:?PG_USER is required}
     command: postgres -c custom.authenticator_password=$PGRST_AUTHENTICATOR_PASS
     healthcheck:
       test:
         ["CMD", "pg_isready", "-U", $PG_USER, "-h", "localhost", "-d", "app"]
-      interval: 2s
-      timeout: 5s
+      interval: 0.5s
+      timeout: 1s
       retries: 10
-
-  iko:
-    image: ghcr.io/explodinglabs/superstack-iko:0.1.0
-    build:
-      context: ./iko
-    depends_on:
-      postgres:
-        condition: service_healthy
-    environment:
-      SQITCH_TARGET: ${SQITCH_TARGET:?SQITCH_TARGET is required}
-      PGRST_DB_SCHEMAS: $PGRST_DB_SCHEMAS
-      PGRST_AUTHENTICATOR_PASS: ${PGRST_AUTHENTICATOR_PASS:?PGRST_AUTHENTICATOR_PASS is required}
-    restart: "no" # Run once and stop
-    command: bash /scripts/init.sh
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
     depends_on:
-      iko:
-        condition: service_completed_successfully
+      postgres:
+        condition: service_healthy
     environment:
       PGRST_APP_SETTINGS_JWT_EXP: 3600
       PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
