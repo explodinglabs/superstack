@@ -1,6 +1,5 @@
 <p align="center">
-  <img alt="SuperStack logo" src="https://github.com/explodinglabs/superstack/blob/main/images/logo-light.png?raw=true#gh-light-mode-only" />
-  <img alt="SuperStack logo" src="https://github.com/explodinglabs/superstack/blob/main/images/logo-dark.png?raw=true#gh-dark-mode-only" />
+  <img alt="SuperStack logo" src="https://github.com/explodinglabs/superstack/blob/main/images/logo-light.png?raw=true" />
 </p>
 
 <h1 align="center">SuperStack</h1>
