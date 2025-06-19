@@ -28,7 +28,7 @@ flowchart TD
 Clone this repository to start SuperStack:
 
 ```sh
-git clone --depth 1 https://github.com/explodinglabs/superstack myapp
+git clone https://github.com/explodinglabs/superstack myapp
 cd myapp
 cp example.env .env
 docker compose up
