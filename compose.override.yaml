@@ -2,8 +2,8 @@ services:
   postgres:
     volumes:
       - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
-      - ./postgres/bin:/superstack-bin
-      - ./postgres/migrations:/migrations
+      - ./postgres/migrations:/etc/superstack/migrations:rw
+      - ./postgres/bin:/superstack-bin:ro
   caddy:
     volumes:
       - ./caddy/conf/Caddyfile:/etc/caddy/Caddyfile:ro
