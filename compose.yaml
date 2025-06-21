@@ -9,11 +9,10 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data:rw
     environment:
-      PG_DB_SCHEMAS: ${PGRST_DB_SCHEMAS:?PGRST_DB_SCHEMAS is required}
-      PG_DB: app
-      PG_PASSWORD: ${PG_PASS:?PG_PASS is required}
-      PG_USER: ${PG_USER:?PG_USER is required}
       PGRST_AUTHENTICATOR_PASS: ${PGRST_AUTHENTICATOR_PASS:?PGRST_AUTHENTICATOR_PASS is required}
+      PGRST_DB_SCHEMAS: ${PGRST_DB_SCHEMAS:?PGRST_DB_SCHEMAS is required}
+      POSTGRES_PASSWORD: ${PG_PASS:?PG_PASS is required}
+      POSTGRES_USER: ${PG_USER:?PG_USER is required}
     command: postgres -c custom.authenticator_password=$PGRST_AUTHENTICATOR_PASS
     healthcheck:
       test:
