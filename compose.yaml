@@ -11,6 +11,7 @@ services:
     environment:
       PGRST_AUTHENTICATOR_PASS: ${PGRST_AUTHENTICATOR_PASS:?PGRST_AUTHENTICATOR_PASS is required}
       PGRST_DB_SCHEMAS: ${PGRST_DB_SCHEMAS:?PGRST_DB_SCHEMAS is required}
+      POSTGRES_DB: app
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
       POSTGRES_USER: ${POSTGRES_USER:?POSTGRES_USER is required}
     command: postgres -c custom.authenticator_password=$PGRST_AUTHENTICATOR_PASS
