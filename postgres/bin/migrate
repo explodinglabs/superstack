@@ -3,67 +3,17 @@ set -euo pipefail
 
 MIGRATIONS_DIR=/etc/superstack/migrations
 APPLIED_MIGRATIONS_FILE="$MIGRATIONS_DIR/.applied_migrations"
-RENDERED=$(mktemp)  # Initial tmp file with env vars substituted in
-TMPFILE=$(mktemp)  # 
-trap 'rm -f "$TMPFILE" "$RENDERED"' EXIT
 
 touch "$APPLIED_MIGRATIONS_FILE"
 
-# Build a set of already-applied files
-declare -A applied
-while IFS= read -r line; do
-  applied["$line"]=1
-done < "$APPLIED_MIGRATIONS_FILE"
+# Get sorted lists of all and applied migration filenames (no paths)
+all_files=$(printf '%s\n' "$MIGRATIONS_DIR"/*.sql | xargs -n1 basename | sort)
+applied_files=$(sort "$APPLIED_MIGRATIONS_FILE")
+pending_files=$(comm -23 <(echo "$all_files") <(echo "$applied_files"))
 
-# Step 1: Concatenate and render all unapplied SQL files in order
-pending_files=()
-
-for file in "$MIGRATIONS_DIR"/*.sql; do
-  base=$(basename "$file")
-  if [[ -z "${applied[$base]+x}" ]]; then
-    echo "-- $base" >> "$RENDERED"
-    envsubst < "$file" >> "$RENDERED"
-    echo "" >> "$RENDERED"
-    pending_files+=("$base")
-  fi
-done
-
-# Step 2: Wrap in BEGIN/COMMIT unless inside a notx block
-txn_open=false
-inside_notx=false
-
-while IFS= read -r line || [[ -n "$line" ]]; do
-  if [[ "$line" =~ --[[:space:]]*notx:start ]]; then
-    if $txn_open; then
-      echo "COMMIT;" >> "$TMPFILE"
-      txn_open=false
-    fi
-    inside_notx=true
-    continue
-  elif [[ "$line" =~ --[[:space:]]*notx:end ]]; then
-    inside_notx=false
-    continue
-  fi
-
-  if $inside_notx; then
-    echo "$line" >> "$TMPFILE"
-  else
-    if ! $txn_open; then
-      echo "BEGIN;" >> "$TMPFILE"
-      txn_open=true
-    fi
-    echo "$line" >> "$TMPFILE"
-  fi
-done < "$RENDERED"
-
-if $txn_open; then
-  echo "COMMIT;" >> "$TMPFILE"
-fi
-
-# Step 3: Run the composed SQL and update .applied_migrations only on success
-if [[ -s "$TMPFILE" ]]; then
-  psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" -f "$TMPFILE"
-  printf '%s\n' "${pending_files[@]}" >> "$APPLIED_MIGRATIONS_FILE"
-else
-  echo "No new migrations to apply." >&2
-fi
+# Apply pending migrations
+while IFS= read -r filename; do
+  envsubst < "$MIGRATIONS_DIR/$filename" | \
+    psql -v ON_ERROR_STOP=1 --username "$PG_USER" --dbname "$PG_DB"
+  echo "$filename" >> "$APPLIED_MIGRATIONS_FILE"
+done <<< "$pending_files"

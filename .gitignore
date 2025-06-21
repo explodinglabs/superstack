@@ -6,6 +6,4 @@
 .vscode/
 .idea/
 .DS_Store
-iko/migrations/.iko-initialised
-iko/migrations/*
-!iko/migrations/.gitkeep
+postgres/migrations/.applied_migrations
