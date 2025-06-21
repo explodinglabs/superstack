@@ -1,4 +1,4 @@
 #!/bin/bash
 set -euo pipefail
 
-docker compose run --rm -it --no-deps postgres migrate
+docker compose exec postgres migrate

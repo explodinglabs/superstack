@@ -3,17 +3,17 @@
 
 services:
   postgres:
-    image: ghcr.io/explodinglabs/superstack-postgres
+    image: ghcr.io/explodinglabs/sp-postgres
     build:
       context: ./postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data:rw
     environment:
+      PG_DB_SCHEMAS: ${PGRST_DB_SCHEMAS:?PGRST_DB_SCHEMAS is required}
+      PG_DB: app
+      PG_PASSWORD: ${PG_PASS:?PG_PASS is required}
+      PG_USER: ${PG_USER:?PG_USER is required}
       PGRST_AUTHENTICATOR_PASS: ${PGRST_AUTHENTICATOR_PASS:?PGRST_AUTHENTICATOR_PASS is required}
-      POSTGRES_DB: app
-      PGRST_DB_SCHEMAS: $PGRST_DB_SCHEMAS
-      POSTGRES_PASSWORD: ${PG_PASS:?PG_PASS is required}
-      POSTGRES_USER: ${PG_USER:?PG_USER is required}
     command: postgres -c custom.authenticator_password=$PGRST_AUTHENTICATOR_PASS
     healthcheck:
       test:
@@ -44,7 +44,7 @@ services:
       - postgrest
 
   caddy:
-    image: ghcr.io/explodinglabs/superstack-caddy:0.1.0
+    image: ghcr.io/explodinglabs/sp-caddy:0.1.0
     build:
       context: ./caddy
     depends_on:
