@@ -2,7 +2,7 @@
 set -euo pipefail
 
 MIGRATIONS_DIR=/etc/superstack/migrations
-APPLIED_MIGRATIONS_FILE="$MIGRATIONS_DIR/.applied_migrations"
+APPLIED_MIGRATIONS_FILE="/var/lib/postgresql/data/.applied_migrations"
 
 touch "$APPLIED_MIGRATIONS_FILE"
 
