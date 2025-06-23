@@ -1,3 +1,18 @@
+Add to postgres/.inputrc
+
+set editing-mode vi
+
+Add to postgres/.psqlrc
+
+\x off
+\pset pager always
+\setenv PAGER 'less -S'
+
+Add to compose.override.yaml
+
+      - ./postgres/.inputrc:/root/.inputrc:ro
+      - ./postgres/.psqlrc:/root/.psqlrc:ro
+
 # How to nuke everything and start again?
 
 docker compose down --volumes
