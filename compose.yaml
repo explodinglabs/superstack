@@ -37,7 +37,8 @@ services:
       PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@postgres:5432/app
       PGRST_DB_USE_LEGACY_GUCS: false
       PGRST_JWT_SECRET: ${PGRST_JWT_SECRET:?}
-      PGRST_OPENAPI_SECURITY_ACTIVE: ${PGRST_OPENAPI_SECURITY_ACTIVE}
+      PGRST_OPENAPI_SECURITY_ACTIVE: true
+      PGRST_OPENAPI_MODE: follow-privileges
 
   swagger-ui:
     image: swaggerapi/swagger-ui:v5.20.1
