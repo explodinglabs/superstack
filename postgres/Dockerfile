@@ -6,6 +6,7 @@ RUN apt-get install -y gettext
 COPY docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 COPY migrations /etc/superstack/migrations
 COPY bin /superstack-bin
-COPY inputrc /root/.inputrc
+COPY .inputrc /root/.inputrc
+COPY .psqlrc /root/.psqlrc
 
 ENV PATH="/superstack-bin:$PATH"
