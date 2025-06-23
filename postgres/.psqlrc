@@ -1,3 +1,0 @@
-\x off              -- disable expanded output (optional)
-\pset pager always  -- always use a pager
-\setenv PAGER 'less -S'
