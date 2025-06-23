@@ -1,6 +1,6 @@
 -- Set the JWT secret in the db. This is required by Postgrest. This is a
 -- non-transactional statement, it cannot go inside the below transaction.
-alter system set pgrst.jwt_secret = '$PGRST_APP_SETTINGS_JWT_SECRET';
+alter system set pgrst.jwt_secret = '$PGRST_JWT_SECRET';
 
 begin;
 
