@@ -4,6 +4,10 @@ services:
       - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
       - ./postgres/migrations:/etc/superstack/migrations:rw
       - ./postgres/bin:/superstack-bin:ro
+    healthcheck:
+      interval: 0.5s
+      timeout: 1s
+      retries: 10
   caddy:
     volumes:
       - ./caddy/conf/Caddyfile:/etc/caddy/Caddyfile:ro
