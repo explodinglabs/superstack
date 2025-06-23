@@ -21,8 +21,8 @@ services:
     command: postgres -c custom.authenticator_password=${PGRST_AUTHENTICATOR_PASS:?}
     healthcheck:
       test: ["CMD", "pg_isready", "-h", "localhost", "-d", "app"]
-      interval: 0.5s
-      timeout: 1s
+      interval: 2s
+      timeout: 5s
       retries: 10
 
   postgrest:
