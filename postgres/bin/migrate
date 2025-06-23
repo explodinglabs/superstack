@@ -12,9 +12,13 @@ applied_files=$(sort "$APPLIED_MIGRATIONS_FILE")
 pending_files=$(comm -23 <(echo "$all_files") <(echo "$applied_files"))
 
 # Apply pending migrations
-while IFS= read -r filename; do
-  echo "-- $filename" >&2
-  envsubst < "$MIGRATIONS_DIR/$filename" | \
-    psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB"
-  echo "$filename" >> "$APPLIED_MIGRATIONS_FILE"
-done <<< "$pending_files"
+if [[ -n "$pending_files" ]]; then
+  while IFS= read -r filename; do
+    echo "-- $filename" >&2
+    envsubst < "$MIGRATIONS_DIR/$filename" | \
+      psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB"
+    echo "$filename" >> "$APPLIED_MIGRATIONS_FILE"
+  done <<< "$pending_files"
+else
+  echo "Nothing to deploy" >&2
+fi
