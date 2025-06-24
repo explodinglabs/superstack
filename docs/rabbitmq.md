@@ -27,8 +27,8 @@ WORKDIR /var/lib/postgresql
 ```
 
 > You may need to fix "implicit int" errors in pg_amqp, which were reported
-> [here](), and [fixed but not yet
-> merged](https://github.com/omniti-labs/pg_amqp/pull/43).
+> [here](https://github.com/omniti-labs/pg_amqp/issues/41), and [fixed but not
+> yet merged](https://github.com/omniti-labs/pg_amqp/pull/43).
 
 Then rebuild:
 
