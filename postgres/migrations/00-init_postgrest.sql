@@ -1,10 +1,13 @@
--- Set the JWT secret in the db. This is required by Postgrest. This is a
+\set pgrst_jwt_secret '$PGRST_JWT_SECRET'
+\set pgrst_authenticator_pass '$PGRST_AUTHENTICATOR_PASS'
+
+-- Set the JWT secret in the db - this is required by Postgrest. This is a
 -- non-transactional statement, it cannot go inside the below transaction.
-alter system set pgrst.jwt_secret = '$PGRST_JWT_SECRET';
+alter system set pgrst.jwt_secret = :'pgrst_jwt_secret';
 
 begin;
 
-create role authenticator noinherit login password '$PGRST_AUTHENTICATOR_PASS';
+create role authenticator noinherit login password :'pgrst_authenticator_pass';
 create role anon;
 grant anon to authenticator;
 create schema api;
