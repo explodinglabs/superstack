@@ -1,37 +1,73 @@
-Add to postgres/.inputrc
+## How to configure psql?
 
+Create an rc directory:
+
+```sh
+mkdir postgres/rc
+```
+
+Add to `postgres/rc/.inputrc`:
+
+```
 set editing-mode vi
+```
 
-Add to postgres/.psqlrc
+Add to `postgres/.psqlrc`:
 
-\x off
-\pset pager always
+```sql
 \setenv PAGER 'less -S'
+```
 
-Add to compose.override.yaml
+Add to `compose.override.yaml`:
 
-      - ./postgres/.inputrc:/root/.inputrc:ro
-      - ./postgres/.psqlrc:/root/.psqlrc:ro
+```yaml
+volumes:
+  - ./postgres/rc:/rc:ro
+environment:
+  INPUTRC: /rc/.inputrc
+  PSQLRC: /rc/.psqlrc
+```
 
-# How to nuke everything and start again?
+Finally:
 
-docker compose down --volumes
-rm -r iko/migrations
+```sh
+docker compose down postgres; docker compose up -d postgres
+```
 
 # How to install Postgres extensions?
 
-# How to enable history in the Iko shell
+Add to your Dockerfile `apt-get install` line:
 
-Add to your ikorc:
+```
+build-essential postgresql-server-dev-17
+```
 
-HISTFILE=~/.bash_history
-HISTSIZE=1000
-HISTFILESIZE=2000
-PROMPT_COMMAND='history -a; history -n'
+Add these lines:
 
-touch ~/iko/.bash_history
+```
+# pgjwt - Used by auth schema
+COPY ./pgjwt /pgjwt
+WORKDIR /pgjwt
+RUN make
+RUN make install
 
-Then mount it into the container, by adding to the iko service volumes section
-in compose.override.yaml:
+# pg_amqp - Used by api schema
+COPY ./pg_amqp /pg_amqp
+WORKDIR /pg_amqp
+RUN make
+RUN make install
 
-- ./iko/.bash_history:/home/.bash_history:rw
+WORKDIR /var/lib/postgresql
+```
+
+Then:
+
+```sh
+docker compose build
+```
+
+## How to nuke everything and start again?
+
+```sh
+docker compose down --volumes
+```
