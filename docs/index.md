@@ -1,32 +1,29 @@
----
-hide:
-  - toc
----
+![SuperStack](assets/logo.png)
 
-![iko](images/logo.png)
+# SuperStack
 
-# ikō
-
-**Iko** (_ee-koh_) is a lightweight containerized tool for managing PostgreSQL
-database migrations with confidence.
-
-It wraps [Sqitch](https://sqitch.org/) with developer-friendly commands and a
-powerful Bash-based scripting model.
+_SuperStack_ is an **application backend** powered by PostgreSQL.
 
 ---
 
-## 🚀 What can I do with Iko?
+## 🚀 What can I do with SuperStack?
 
-- Create clean, verifiable migrations using prebuilt templates
-- Run migrations in Docker with zero local setup
-- Script database structure in portable Bash files
-- Build a production-ready migration image for CI/CD
+SuperStack gives you a fully working backend with zero setup — just clone
+and run.
+
+It's perfect for:
+
+- Building SaaS apps
+- Running multiple stacks locally
+- Easy database migrations
+- Customizing your toolchain
 
 ---
 
-## Documentation
+## 📚 Documentation
 
 - [Getting Started](gettingstarted.md)
-- [Command Reference](commands.md)
-- [Scripting Migrations](scripting.md)
+- [Migrations](migrations.md)
+- [Postgres Extensions](extensions.md)
+- [Psql](psql.md)
 - [Deploying to Remote Environments](deploying.md)
