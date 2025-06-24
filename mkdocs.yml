@@ -44,7 +44,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started: gettingstarted.md
+  - Migrations: migrations.md
   - Postgres Extensions: extensions.md
   - Psql: psql.md
   - Deploying to Remote Environments: deploying.md
-  - FAQ: faq.md

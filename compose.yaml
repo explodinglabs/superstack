@@ -1,5 +1,6 @@
 # Production compose file. Don't mount any local directories from the
-# repository in here, that can be done in the override file - for development.
+# repository in here, that can be done in the override file - for
+# development.
 
 services:
   postgres:

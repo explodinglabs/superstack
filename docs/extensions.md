@@ -1,42 +1,58 @@
-# Postgres Extensions
+# 🧩 Postgres Extensions
 
-## How to load an extension?
+SuperStack supports PostgreSQL extensions, letting you add powerful
+features like cryptographic functions or JWT handling.
 
-Load the extension by adding to a `postgres/migrations/##-extensions.sql`:
+## 🔌 Loading a Built-In Extension
+
+To load a standard extension (like pgcrypto), create a migration file such
+as:
 
 ```sql
+-- File: postgres/migrations/01-extensions.sql
+
 create extension pgcrypto;
 ```
 
-> Note `create extension` is a non-transactional command, so don't use
-> begin/commit in this file.
+> ⚠️ `create extension` is non-transactional, so don’t wrap this file in
+> `BEGIN/COMMIT`.
 
-## Build extension from source
+## 🛠️ Building an Extension from Source
 
-Clone the repository into `postgres/`, e.g..
+Some extensions (like [pgjwt](https://github.com/michelp/pgjwt)) must be
+compiled manually.
+
+### 1. Clone the Extension Source
 
 ```sh
 git clone https://github.com/michelp/pgjwt postgres/pgjwt
 ```
 
-Add to `postgres/Dockerfile`:
+### 2. Modify the Postgres Dockerfile
+
+Edit `postgres/Dockerfile` to install build tools and compile the
+extension:
 
 ```
-RUN apt-get install build-essential postgresql-server-dev-17
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    postgresql-server-dev-17
 
-# pgjwt - Used by auth schema
+# pgjwt - used by the auth schema
 COPY ./pgjwt /pgjwt
 WORKDIR /pgjwt
-RUN make
-RUN make install
+RUN make && make install
 
+# Reset workdir
 WORKDIR /var/lib/postgresql
 ```
 
-> The last line is just to set the `WORKDIR` back to the default.
+> 🧼 Set `WORKDIR` back to the default to avoid unintended effects.
 
-Then:
+### 3. Rebuild the Container
 
 ```sh
 docker compose build postgres
 ```
+
+That’s it — the extension is now available to load in your migrations.
