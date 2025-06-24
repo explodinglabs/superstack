@@ -20,30 +20,32 @@ Each file should be:
 
 ## 🔁 Transactions
 
-Each migration file should start with `BEGIN` and end with `COMMIT`, like
-this:
+Use BEGIN; and COMMIT; to wrap migration files when all included statements are
+transactional. This ensures that all changes are applied atomically.
+
+For example:
 
 ```sql
 -- File: postgres/migrations/03-create_table_example.sql
 begin;
 
-create table example (
+create table director (
   id serial primary key,
   name text not null
+);
+
+create table movie (
+  id serial primary key,
+  name text not null,
+  director_id integer references director(id)
 );
 
 commit;
 ```
 
-## ⚠️ Non-Transactional Migrations
-
-Some statements (like create extension) cannot be wrapped in a transaction.
-In those cases, skip the `BEGIN/COMMIT`:
-
-```sql
--- File: postgres/migrations/02-extensions.sql
-create extension pgcrypto;
-```
+Avoid wrapping CREATE ROLE, DROP DATABASE, or other non-transactional
+operations in a transaction — these will cause errors if used inside BEGIN ...
+COMMIT.
 
 ## ▶️ Applying Migrations
 
