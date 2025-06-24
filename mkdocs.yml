@@ -30,12 +30,21 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
+plugins:
+  - search
+  - mermaid2
 markdown_extensions:
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
 nav:
   - Home: index.md
-  - Installation: installation.md
-  - Usage: usage.md
-  - Commands: commands.md
-  - Scripting: scripting.md
+  - Getting Started: gettingstarted.md
+  - Postgres Extensions: extensions.md
+  - Psql: psql.md
+  - Deploying to Remote Environments: deploying.md
+  - FAQ: faq.md

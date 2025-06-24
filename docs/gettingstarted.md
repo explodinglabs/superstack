@@ -1,37 +1,72 @@
-## Getting Started
+# 🚀 Getting Started
 
-SuperStack uses [Iko](https://github.com/explodinglabs/iko) for database schema
-migrations. On startup, a few base migrations are applied so PostgREST can
-function. After that, you’re free to evolve the database however you like.
+Spin up a full-featured backend in seconds. SuperStack uses Docker, so make sure Docker is installed before you begin.
 
-A wrapper script is included at `bin/iko`, that runs the Iko CLI inside Docker
-Compose’s network, allowing it to connect properly to the Postgres container.
+## 1. Clone the Repository
 
 ```sh
-echo 'export PATH="${PWD}/bin:$PATH"' >> ~/.bashrc
+git clone https://github.com/explodinglabs/superstack myapp
+cd myapp
 ```
 
-Run Iko commands like this:
+## 2. Configure Your Environment
+
+Compy the example environment file:
 
 ```sh
-./bin/iko check
+cp example.env .env
 ```
 
-To avoid typing `./bin/iko` repeatedly, create an alias:
+Edit `.env` to set your database credentials and secrets.
+
+## 3. Start SuperStack
 
 ```sh
-alias iko=./bin/iko
+docker compose up -d
 ```
 
-> **Note:** This iko script differs from the standalone Iko CLI which runs via
-> `docker run` — the SuperStack wrapper uses `docker compose run` to integrate
-> with SuperStack's Compose networking.
+That's it – your backend is live.
 
-See [Iko's commands]() for the full list of available commands.
+---
 
-## Nuke everything and start over
+## 🧩 What Just Happened?
+
+SuperStack automatically:
+
+- Starts a fresh **Postgres** database
+- Applies initial **migrations**
+- Launches **PostgREST** and **Swagger UI**
+- Serves everything through **Caddy** on http://localhost:8000
+
+```mermaid
+flowchart TD
+    Caddy["Caddy (API Gateway)"]
+    Caddy --> Services["Services (PostgREST, Swagger UI + more)"]
+    Services --> Postgres
+```
+
+> 💡 Only Caddy exposes a port – all services are routed through it.
+
+You can now open [localhost:8000/openapi/](http://localhost:8000/openapi/)
+to explore your API.
+
+## Notes
+
+- Services are configured in `compose.yaml` (shared) and
+  `compose.override.yaml` (dev-only).
+- The `.env` file is for **local development only**. For remote
+  deployments, set secrets via CI/CD or with `docker compose --env` (avoid
+  leaking secrets to shell history).
+
+## Nuke everything
+
+To wipe your stack and start clean:
 
 ```sh
 docker compose down --volumes
-rm -rf migrations
 ```
+
+## ➕ What's Next?
+
+👉 [Create your database schema and migrations](migrations.md)
+👉 [Deploy to a remote environment](deploying.md)
