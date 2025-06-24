@@ -1,87 +1,91 @@
-# psql
+# 🖥️ Using psql
 
-_psql_ is the command-line interface for interacting with PostgreSQL
-databases.
+`psql` is the command-line tool for interacting with your PostgreSQL
+database. SuperStack makes it easy to run psql inside the container using a
+helper script.
 
-In SuperStack you can access it with `bin/postgres psql`:
+## 📟 Open a psql Shell
+
+To connect interactively:
 
 ```sh
-$ bin/postgres psql
+bin/postgres psql
+```
+
+Example output:
+
+```
 psql (17.5 (Debian 17.5-1.pgdg120+1))
 Type "help" for help.
 
 app=#
 ```
 
-Or to run a command inline:
+## 🔹 Run Inline SQL Commands
 
-```sh
+You can also run SQL directly from the command line:
+
+```
 bin/postgres psql -c 'select version()'
+```
+
+Example output:
+
+```
                                                        version
 ---------------------------------------------------------------------------------------------------------------------
  PostgreSQL 17.5 (Debian 17.5-1.pgdg120+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14) 12.2.0, 64-bit
 (1 row)
 ```
 
-## .psqlrc
+## ⚙️ Customize psql Behavior
 
-Configure psql with a .psqlrc configuration file.
+You can persist your preferences using `.psqlrc` and `.inputrc`.
 
-Create an rc directory:
+### 🔧 Step 1: Create a config directory
 
 ```sh
-mkdir postgres/rc
+mkdir -p postgres/rc
 ```
 
-Add your `postgres/rc/.psqlrc`:
+### 📄 .psqlrc
 
-```sql
+Create `postgres/rc/.psqlrc` with your preferred settings:
+
+```
 \pset pager off
 \setenv PAGER 'less -S'
 ```
 
-> 📚 See https://www.postgresql.org/docs/current/app-psql.html
+See the [official psql
+reference](https://www.postgresql.org/docs/current/app-psql.html) for all
+available options.
 
-Add to `compose.override.yaml`:
+### 📄 .inputrc
 
-```yaml
-volumes:
-  - ./postgres/rc:/rc:ro
-environment:
-  PSQLRC: /rc/.psqlrc
-```
-
-Finally:
-
-```sh
-docker compose down postgres; docker compose up -d postgres
-```
-
-## .inputrc
-
-Create an rc directory:
-
-```sh
-mkdir postgres/rc
-```
-
-Add your `postgres/rc/.inputrc`:
+Create `postgres/rc/.inputrc` to set readline behavior:
 
 ```
 set editing-mode vi
 ```
 
-Add to `compose.override.yaml`:
+## 🔗 Step 2: Mount and apply the configs
+
+Add to your `compose.override.yaml`:
 
 ```yaml
-volumes:
-  - ./postgres/rc:/rc:ro
-environment:
-  INPUTRC: /rc/.inputrc
+services:
+  postgres:
+    volumes:
+      - ./postgres/rc:/rc:ro
+    environment:
+      PSQLRC: /rc/.psqlrc
+      INPUTRC: /rc/.inputrc
 ```
 
-Finally:
+## 🔁 Step 3: Restart the Postgres container
 
 ```sh
-docker compose down postgres; docker compose up -d postgres
+docker compose down postgres
+docker compose up -d postgres
 ```
