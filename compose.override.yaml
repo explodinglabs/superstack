@@ -1,9 +1,11 @@
+# This file is for development-only overrides
 services:
   postgres:
     volumes:
       - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
       - ./postgres/migrations:/etc/superstack/migrations:rw
       - ./postgres/bin:/superstack-bin:ro
+    # Set a faster healthcheck interval for the development server
     healthcheck:
       interval: 0.5s
       timeout: 1s
