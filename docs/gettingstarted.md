@@ -3,26 +3,30 @@
 SuperStack uses Docker, so make sure [Docker is
 installed](https://docs.docker.com/get-docker/) before you begin.
 
-## 1. Clone the Repository
+## 1. Create a New Project from the Template
+
+Click [Use this template](https://github.com/explodinglabs/superstack/generate) to create your own repository.
+
+## 2. Clone Your New Repository
 
 ```sh
-git clone https://github.com/explodinglabs/superstack myapp
+git clone https://github.com/yourname/myapp
 cd myapp
 ```
 
-## 2. Configure Your Environment
+## 3. Configure Environment Variables
 
-Copy the example environment file:
+Copy the example file:
 
 ```sh
 cp example.env .env
 ```
 
-> 💡 The `.env` file is for local development only. For remote deployments,
-> set secrets via CI/CD or with `docker compose --env` (avoid leaking
-> secrets to shell history).
+> 💡 The .env file is for local development only. For remote deployments, set
+> secrets using CI/CD or inline environment variables (avoid saving secrets in
+> shell history).
 
-## 3. Start SuperStack
+## 4. Start the Stack
 
 ```sh
 docker compose up -d
