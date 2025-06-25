@@ -15,7 +15,7 @@ account:
 
 ```sh
 git remote rename origin upstream
-git remote add origin git@github.com:yourname/myapp.git
+git remote add origin https://github.com/yourname/myapp
 ```
 
 Now you can push/pull to your own repo as normal:
