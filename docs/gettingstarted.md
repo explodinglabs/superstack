@@ -22,9 +22,8 @@ Copy the example file:
 cp example.env .env
 ```
 
-> 💡 The .env file is for local development only. For remote deployments, set
-> secrets using CI/CD or inline environment variables (avoid saving secrets in
-> shell history).
+> ⚠️ The .env file is for local development only. For remote deployments,
+> set environment variables using CI/CD or inline in the `docker compose up` command (be sure to avoid saving secrets in shell history).
 
 ## 4. Start the Stack
 
@@ -67,5 +66,5 @@ docker compose down --volumes
 
 ## ➕ What's Next?
 
-👉 [Create your database schema and migrations](migrations.md)  
+👉 [Create your database schema with migrations](migrations.md)  
 👉 [Deploy to a remote environment](deploying.md)
