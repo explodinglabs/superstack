@@ -24,7 +24,7 @@ flowchart TD
 
 ## 🚀 Quick Start
 
-1. [Use this template](https://github.com/explodinglabs/superstack/generate) to
+1. [Fork SuperStack](https://github.com/explodinglabs/superstack/fork) to
    create a new repository under your GitHub account.
 2. **Clone your new project and start the stack:**
 
