@@ -47,7 +47,7 @@ nav:
   - Migrations: migrations.md
   - Psql: psql.md
   - Deploying to Remote Environments: deploying.md
-  - Update SuperStack: update_superstack.md
+  - Upgrade SuperStack: upgrading.md
   - Add to your Stack:
       - Postgres Extensions: extensions.md
       - Authentication: authentication.md

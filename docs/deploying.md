@@ -5,10 +5,8 @@ how to deploy it to a remote server.
 
 ## ✅ 1. Set Your Image Names
 
-In `compose.yaml`, change the image names to your own (e.g. using your
-Docker Hub or GitHub Container Registry account):
-
-For example:
+Change the image names to your own (e.g. using your Docker Hub or GitHub
+Container Registry account) in `compose.yaml`, for example:
 
 ```yaml
 postgres:
@@ -17,7 +15,7 @@ caddy:
   image: ghcr.io/youruser/yourapp-caddy
 ```
 
-## 🛠️ 2. Build and Push the Images
+## 🛠️ 2. Build and Push your Images
 
 Build your images locally and push to your registry:
 
@@ -28,15 +26,18 @@ docker compose push
 
 ## 📦 3. Deploy the Compose File
 
-Only `compose.yaml` is required on the server. Copy it over:
+The only file needed for SuperStack to work on the remote server is
+`compose.yaml`.
+
+Copy it to your server:
 
 ```sh
 scp compose.yaml youruser@yourserver:
 ```
 
-## 🚀 4. Launch SuperStack on the Server
+## 🚀 4. Launch your Stack
 
-SSH into your server, and bring up the stack.
+SSH into your server and bring up the stack.
 
 For production, avoid using `.env` files. Instead, set secrets directly:
 
@@ -49,12 +50,19 @@ JWT_SECRET=your-secret \
 docker compose up -d
 ```
 
-> 💡 Avoid leaking secrets by disabling shell history. Alternatively, use
-> environment injection in your CI/CD.
+> 💡 Avoid leaking secrets by disabling shell history.
+
+Alternatively, use environment injection in your CI/CD.
+
+---
 
 That’s it — your backend is live.
 
-If it's the first time bringing up your stack, the migrations will run
-automatically when you `docker compose up`. Subsequently, you should run
-`docker compose exec postgres migrate` (and don't forget to include the
-environment variables).
+If this is the first time bringing up your stack, the migrations will run
+automatically. Subsequently, to upgrade your app you should:
+
+```sh
+docker compose pull
+docker compose up -d
+docker compose exec postgres migrate
+```

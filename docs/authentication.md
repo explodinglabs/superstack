@@ -1,7 +1,7 @@
 # 🔐 Authentication
 
-SuperStack includes everything you need to implement secure, JWT-based
-authentication using PostgreSQL functions.
+Here's how to implement secure, JWT-based authentication using PostgreSQL
+functions.
 
 ## 📦 1. Install pgjwt
 
