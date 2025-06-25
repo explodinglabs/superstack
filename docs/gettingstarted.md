@@ -5,7 +5,8 @@ installed](https://docs.docker.com/get-docker/) before you begin.
 
 ## 1. Create a New Project from the Template
 
-Click [Use this template](https://github.com/explodinglabs/superstack/generate) to create your own repository.
+[Fork SuperStack](https://github.com/explodinglabs/superstack/fork) to
+create your own repository.
 
 ## 2. Clone Your New Repository
 
