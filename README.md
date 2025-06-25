@@ -24,18 +24,20 @@ flowchart TD
 
 ## 🚀 Quick Start
 
-1. [Fork SuperStack](https://github.com/explodinglabs/superstack/fork) to
-   create a new repository under your GitHub account.
-2. **Clone your new project and start the stack:**
+1. **Clone SuperStack and start the stack:**
 
 ```sh
-git clone https://github.com/yourname/myapp
+git clone https://github.com/explodinglabs/superstack myapp
 cd myapp
 cp example.env .env
 docker compose up -d
 ```
 
-3. **Explore your API**
+(For details on how to change this clone to point to your own repository
+host, see
+[here](https://www.explodinglabs.com/superstack/gettingstarted/).)
+
+2. **Explore your API**
 
 Open [http://localhost:8000/openapi/](http://localhost:8000/openapi/) in your
 browser to view and test endpoints using Swagger UI.
