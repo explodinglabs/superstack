@@ -3,19 +3,35 @@
 SuperStack uses Docker, so make sure [Docker is
 installed](https://docs.docker.com/get-docker/) before you begin.
 
-## 1. Create a New Project from the Template
-
-[Fork SuperStack](https://github.com/explodinglabs/superstack/fork) to
-create your own repository.
-
-## 2. Clone Your New Repository
+## 1. Clone SuperStack
 
 ```sh
-git clone https://github.com/yourname/myapp
+git clone https://github.com/explodinglabs/superstack myapp
 cd myapp
 ```
 
-## 3. Configure Environment Variables
+**Recommended:** Change this clone to point "origin" to your own repository
+account:
+
+```sh
+git remote rename origin upstream
+git remote add origin git@github.com:yourname/myapp.git
+```
+
+Now you can push/pull to your own repo as normal:
+
+```sh
+git push origin head
+git pull
+```
+
+Or upgrade to a more recent SuperStack:
+
+```sh
+git pull upstream main
+```
+
+## 2. Configure Environment Variables
 
 Copy the example file:
 
@@ -26,7 +42,7 @@ cp example.env .env
 > ⚠️ The .env file is for local development only. For remote deployments,
 > set environment variables using CI/CD or inline in the `docker compose up` command (be sure to avoid saving secrets in shell history).
 
-## 4. Start the Stack
+## 3. Start the Stack
 
 ```sh
 docker compose up -d
