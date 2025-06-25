@@ -20,8 +20,12 @@ Each file should be:
 
 ## 🔁 Transactions
 
-Use BEGIN; and COMMIT; to wrap migration files when all included statements are
-transactional. This ensures that all changes are applied atomically.
+Use `BEGIN;` and `COMMIT;` to wrap migration files when all included
+statements are transactional. This ensures that all changes are applied
+atomically.
+
+If your migration script only contains one statement, there's no need to
+use a transaction, the statement will be auto-committed.
 
 For example:
 
@@ -43,9 +47,26 @@ create table movie (
 commit;
 ```
 
-Avoid wrapping CREATE ROLE, DROP DATABASE, or other non-transactional
-operations in a transaction — these will cause errors if used inside BEGIN ...
-COMMIT.
+Avoid wrapping non-transactional operations in a transaction — these will
+cause errors if used inside `BEGIN ... COMMIT`.
+
+Examples of non-transactional statements include:
+
+```sql
+CREATE EXTENSION
+DROP EXTENSION
+VACUUM
+REINDEX
+CLUSTER
+CREATE DATABASE
+DROP DATABASE
+CREATE ROLE
+CREATE TABLESPACE
+DROP TABLESPACE
+ALTER SYSTEM
+DISCARD ALL
+LOAD
+```
 
 ## ▶️ Applying Migrations
 

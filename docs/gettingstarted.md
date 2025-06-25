@@ -46,7 +46,7 @@ SuperStack automatically:
 - Starts a fresh **Postgres** database
 - Applies initial **migrations**
 - Launches **PostgREST** and **Swagger UI**
-- Serves everything through **Caddy** on http://localhost:8000
+- Serves everything through **Caddy**
 
 ```mermaid
 flowchart TD
