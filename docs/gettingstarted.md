@@ -10,8 +10,7 @@ git clone https://github.com/explodinglabs/superstack myapp
 cd myapp
 ```
 
-**Recommended:** Change this clone to point "origin" to your own repository
-account:
+### Recommended: Change this clone to point "origin" to your own hosted repository
 
 ```sh
 git remote rename origin upstream
