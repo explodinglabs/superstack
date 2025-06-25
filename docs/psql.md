@@ -62,7 +62,8 @@ set editing-mode vi
 
 ## 🔗 Step 2: Mount and apply the configs
 
-Add to your `compose.override.yaml`:
+Add to your `compose.override.yaml` (this file is for development-only
+overriding of `compose.yaml`):
 
 ```yaml
 services:

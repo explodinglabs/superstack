@@ -1,8 +1,8 @@
 FROM postgres:17
 
-RUN apt-get update
 # gettext is needed for envsubst
-RUN apt-get install -y gettext
+RUN apt-get update && apt-get install -y \
+  gettext
 
 COPY docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
 COPY migrations /etc/superstack/migrations
