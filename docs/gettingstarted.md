@@ -10,7 +10,8 @@ git clone https://github.com/explodinglabs/superstack myapp
 cd myapp
 ```
 
-### Recommended: Change this clone to point "origin" to your own hosted repository
+<details>
+<summary>Recommended: Click here to see how to change this clone to point "origin" to your own hosted repository</summary>
 
 ```sh
 git remote rename origin upstream
@@ -29,6 +30,8 @@ Or upgrade to a more recent SuperStack:
 ```sh
 git pull upstream main
 ```
+
+</details>
 
 ## 2. Configure Environment Variables
 
