@@ -33,9 +33,6 @@ cp example.env .env
 docker compose up -d
 ```
 
-You should change the clone to point "origin" to your own hosted repository
-– see how [here](https://www.explodinglabs.com/superstack/gettingstarted/).
-
 2. **Explore your API**
 
 Open [http://localhost:8000/openapi/](http://localhost:8000/openapi/) in your
