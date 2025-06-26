@@ -11,24 +11,31 @@ cd myapp
 ```
 
 <details>
-<summary>Recommended: Click here to see how to change this clone to point "origin" to your own hosted repository</summary>
+<summary>Click here to see how to change this clone to point "origin" to your own hosted repository (Recommended)</summary>
+
+Rename "origin" to "upstream":
 
 ```sh
 git remote rename origin upstream
-git remote add origin https://github.com/yourname/myapp
 ```
 
-Now you can push/pull to your own repo as normal:
-
-```sh
-git push origin head
-git pull
-```
-
-Or upgrade to a more recent SuperStack:
+This way you can still upgrade to a more recent SuperStack with:
 
 ```sh
 git pull upstream main
+```
+
+Add your own code repository:
+
+```sh
+git remote add origin https://github.com/yourname/myapp
+```
+
+Now you can pull/push to your own repo as normal:
+
+```sh
+git pull
+git push origin head
 ```
 
 </details>
