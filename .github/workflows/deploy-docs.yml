@@ -5,7 +5,7 @@ name: Build and Deploy MkDocs
 on:
   push:
     branches:
-      - main  # or your main development branch
+      - main # or your main development branch
 
 jobs:
   deploy:
@@ -40,6 +40,8 @@ jobs:
       - name: Commit and push
         run: |
           cd target-repo
+          git config user.name "Exploding Labs Bot"
+          git config user.email "bot@explodinglabs.com"
           git add .
           git commit -m "Update site from docs source repo" || echo "No changes to commit"
           git push
