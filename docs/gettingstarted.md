@@ -38,11 +38,11 @@ git pull
 git push origin head
 ```
 
-### Why not just fork SuperStack?
+<h3>Why not just fork SuperStack?</h3>
 
 Because you can't make a fork private.
 
-### Why not make SuperStack a template repo?
+<h3>Why not make SuperStack a template repo?</h3>
 
 Because then you can't pull from upstream SuperStack.
 
