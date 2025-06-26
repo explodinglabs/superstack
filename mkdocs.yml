@@ -44,11 +44,11 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Getting Started: gettingstarted.md
-  - Migrations: migrations.md
-  - Psql: psql.md
-  - Deploying to Remote Environments: deploying.md
-  - Upgrade SuperStack: upgrading.md
-  - Add to your Stack:
+  - Build your App:
+      - Migrations: migrations.md
       - Postgres Extensions: extensions.md
       - Authentication: authentication.md
       - RabbitMQ: rabbitmq.md
+  - Psql: psql.md
+  - Deploying to Remote Environments: deploying.md
+  - Upgrading SuperStack: upgrading.md
