@@ -30,7 +30,9 @@ jobs:
       - name: Clone target repo
         run: |
           git clone https://x-access-token:${{ secrets.TARGET_REPO_PAT }}@github.com/explodinglabs/explodinglabs.com.git target-repo
-          cp -r site/* target-repo/
+          rm -rf target-repo/superstack
+          mkdir -p target-repo/superstack
+          cp -a site/. target-repo/superstack/
         env:
           GIT_AUTHOR_NAME: GitHub Actions
           GIT_COMMITTER_NAME: GitHub Actions
