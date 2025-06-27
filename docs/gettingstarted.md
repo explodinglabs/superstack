@@ -45,14 +45,22 @@ git pull upstream main
 
 ## 2. Configure Environment Variables
 
-Copy the example file:
+Copy the example environment file:
 
 ```sh
 cp example.env .env
 ```
 
-> ⚠️ **The .env file is for local development only.** Don't store real secrets
-> in production — use CI/CD environment variables or a secrets manager.
+This `.env` file is used to configure:
+
+- **Secrets** – Passwords, keys, etc.
+- **Ports** – Configured with env vars so you can adjust the exposed ports
+  (specifically, Caddy's) depending on application (you may bring up multiple
+  for development) or environment.
+
+> ⚠️ Important: This file is for local development only. Never store real
+> secrets in version control or production. Use CI/CD environment variables or
+> a secrets manager instead.
 
 ## 3. Start the Stack
 
