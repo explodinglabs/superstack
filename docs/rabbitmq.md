@@ -92,3 +92,17 @@ bin/postgres migrate
 
 SuperStack will execute the new migration files, skipping those already
 applied.
+
+## 4. Add RabbitMQ Service
+
+Add to `compose.yaml`:
+
+```yaml
+services:
+  rabbitmq:
+    image: rabbitmq:3
+    ports:
+      - 5672:5672
+    environment:
+      RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS: "-rabbit channel_max 0"
+```
