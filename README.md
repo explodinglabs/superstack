@@ -24,16 +24,18 @@ flowchart TD
 
 ## 🚀 Quick Start
 
-1. **Clone SuperStack and start the stack:**
+1. [Create your repository from the SuperStack template](https://github.com/explodinglabs/superstack/generate)
+
+2. Clone your repository and start SuperStack:
 
 ```sh
-git clone https://github.com/explodinglabs/superstack myapp
+git clone https://github.com/yourname/myapp myapp
 cd myapp
 cp example.env .env
 docker compose up -d
 ```
 
-2. **Explore your API**
+3. **Explore your API**
 
 Open [http://localhost:8000/openapi/](http://localhost:8000/openapi/) in your
 browser to view and test endpoints using Swagger UI.
