@@ -3,50 +3,44 @@
 SuperStack uses Docker, so make sure [Docker is
 installed](https://docs.docker.com/get-docker/) before you begin.
 
-## 1. Clone SuperStack
+## Get SuperStack
+
+### Option 1: Use the Template (Recommended)
+
+The easiest way to get started:
+
+Click [Use this template](https://github.com/explodinglabs/superstack/generate)
+and create a new repository (e.g. `myapp`) on GitHub.
+
+Clone your new repository:
 
 ```sh
-git clone https://github.com/explodinglabs/superstack myapp
+git clone https://github.com/yourname/myapp.git
 cd myapp
 ```
 
-<details>
-<summary>Click here to see how to change this clone to point "origin" to your own hosted repository (Recommended)</summary>
+### Option 2: Clone and Track Upstream (Advanced)
 
-Rename "origin" to "upstream":
+If you want to keep SuperStack’s Git history and pull upstream changes later:
+
+```sh
+git clone https://github.com/explodinglabs/superstack.git myapp
+cd myapp
+```
+
+Create your own repo at [https://github.com/new](https://github.com/new), then:
 
 ```sh
 git remote rename origin upstream
+git remote add origin https://github.com/yourname/myapp.git
+git push -u origin main
 ```
 
-This way you can still upgrade to a more recent SuperStack with:
+You can now pull upstream changes with:
 
 ```sh
 git pull upstream main
 ```
-
-Add your own code repository:
-
-```sh
-git remote add origin https://github.com/yourname/myapp
-```
-
-Now you can pull/push to your own repo as normal:
-
-```sh
-git pull
-git push origin head
-```
-
-<h3>Why not just fork SuperStack?</h3>
-
-Because you can't make a fork private.
-
-<h3>Why not make SuperStack a template repo?</h3>
-
-Because then you can't pull from upstream SuperStack.
-
-</details>
 
 ## 2. Configure Environment Variables
 
@@ -67,8 +61,9 @@ docker compose up -d
 
 That's it – your backend is live.
 
-You can now open [localhost:8000/openapi/](http://localhost:8000/openapi/)
-to explore your API.
+You can now open
+[https://localhost:8000/openapi/](http://localhost:8000/openapi/) to explore
+your API.
 
 ---
 
