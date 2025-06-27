@@ -3,7 +3,7 @@
 SuperStack uses Docker, so make sure [Docker is
 installed](https://docs.docker.com/get-docker/) before you begin.
 
-## Get SuperStack
+## 1. Get SuperStack
 
 ### Option 1: Use the Template (Recommended)
 
@@ -12,7 +12,7 @@ The easiest way to get started:
 Click [Use this template](https://github.com/explodinglabs/superstack/generate)
 and create a new repository (e.g. `myapp`) on GitHub.
 
-Clone your new repository:
+Clone it to your machine:
 
 ```sh
 git clone https://github.com/yourname/myapp.git
@@ -21,15 +21,15 @@ cd myapp
 
 ### Option 2: Clone and Track Upstream (Advanced)
 
-If you want to keep SuperStack’s Git history and pull upstream SuperStack
-changes later, clone SuperStack:
+If you want to keep SuperStack’s Git history and pull upstream changes later,
+clone SuperStack:
 
 ```sh
 git clone https://github.com/explodinglabs/superstack.git myapp
 cd myapp
 ```
 
-Create your own repo at [https://github.com/new](https://github.com/new), then:
+[Create your own repo](https://github.com/new), then:
 
 ```sh
 git remote rename origin upstream
@@ -51,8 +51,8 @@ Copy the example file:
 cp example.env .env
 ```
 
-> ⚠️ The .env file is for local development only. For remote deployments,
-> set environment variables using CI/CD or inline in the `docker compose up` command (be sure to avoid saving secrets in shell history).
+> ⚠️ **The .env file is for local development only.** Don't store real secrets
+> in production — use CI/CD environment variables or a secrets manager.
 
 ## 3. Start the Stack
 
@@ -63,7 +63,7 @@ docker compose up -d
 That's it – your backend is live.
 
 You can now open
-[https://localhost:8000/openapi/](http://localhost:8000/openapi/) to explore
+[http://localhost:8000/openapi/](http://localhost:8000/openapi/) to explore
 your API.
 
 ---
@@ -72,10 +72,10 @@ your API.
 
 SuperStack automatically:
 
-- Starts a fresh **Postgres** database
-- Applies initial **migrations**
-- Launches **PostgREST** and **Swagger UI**
-- Serves everything through **Caddy**
+1. Starts a fresh Postgres database
+2. Applies initial migrations
+3. Launches PostgREST and Swagger UI
+4. Serves everything through Caddy
 
 ```mermaid
 flowchart TD
@@ -86,13 +86,32 @@ flowchart TD
 
 > 💡 Only Caddy exposes a port – all services are routed through it.
 
-## Nuke everything
+## Project Structure
 
-To wipe your stack and start clean:
+```
+📁 bin/                  → Helper scripts (e.g. wrappers for CLI tools)
+📁 caddy/                → Custom Caddy configuration and certificates
+📁 docs/                 → Markdown files for SuperStack documentation
+📁 postgres/             → SQL migrations and configuration of the postgres container
+📄 compose.yaml          → Main Docker Compose config
+📄 compose.override.yaml → Optional local overrides (development only)
+📄 example.env           → Example environment variables — copy to `.env`
+📄 LICENSE               → License file (MIT)
+📄 logo.png              → SuperStack logo for README/docs
+📄 mkdocs.yml            → MkDocs configuration for documentation site
+📄 README.md             → Overview and quick start for the repository
+```
+
+## 🔄 Resetting
+
+If you want to start fresh:
 
 ```sh
 docker compose down --volumes
+docker compose up -d
 ```
+
+This will wipe your database and re-run all migrations from scratch.
 
 ## ➕ What's Next?
 
