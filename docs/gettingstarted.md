@@ -21,7 +21,8 @@ cd myapp
 
 ### Option 2: Clone and Track Upstream (Advanced)
 
-If you want to keep SuperStack’s Git history and pull upstream changes later:
+If you want to keep SuperStack’s Git history and pull upstream SuperStack
+changes later, clone SuperStack:
 
 ```sh
 git clone https://github.com/explodinglabs/superstack.git myapp
