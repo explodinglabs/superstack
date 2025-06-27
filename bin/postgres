@@ -1,3 +1,8 @@
 #!/bin/bash
 
-docker compose exec -it postgres "$@"
+# If input is coming from a pipe or file, use -T to disable tty
+if [[ ! -t 0 ]]; then
+  docker compose exec -T postgres "$@"
+else
+  docker compose exec -it postgres "$@"
+fi
