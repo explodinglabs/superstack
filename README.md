@@ -29,16 +29,14 @@ flowchart TD
 2. Clone your repository and start SuperStack:
 
 ```sh
-git clone https://github.com/yourname/myapp myapp
+git clone https://github.com/yourname/myapp.git
 cd myapp
 cp example.env .env
 docker compose up -d
 ```
 
-3. **Explore your API**
-
-Open [http://localhost:8000/openapi/](http://localhost:8000/openapi/) in your
-browser to view and test endpoints using Swagger UI.
+Open [http://localhost:8000/openapi/](http://localhost:8000/openapi/) to view
+your Swagger UI.
 
 ## 📚 Full Documentation
 
