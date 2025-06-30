@@ -9,7 +9,7 @@
       float: none;
       display: block;
       margin: 0 auto 2em;
-      text-align: center;
+      padding: 0;
     }
   }
 </style>
