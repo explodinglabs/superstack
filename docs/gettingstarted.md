@@ -54,9 +54,8 @@ cp example.env .env
 This `.env` file is used to configure:
 
 - **Secrets** – Passwords, keys, etc.
-- **Ports** – Configured with env vars so you can adjust the exposed ports
-  (specifically, Caddy's) depending on application (you may bring up multiple
-  for development) or environment.
+- **Ports** – Adjust the exposed ports (specifically, Caddy's) depending on
+  environment or application (you may bring up multiple for development).
 
 > ⚠️ Important: This file is for local development only. Never store real
 > secrets in version control or production. Use CI/CD environment variables or
