@@ -55,14 +55,11 @@ This `.env` file is used to configure:
 
 - **Secrets** – Passwords, keys, etc.
 - **Ports** – Adjust the exposed ports (specifically, Caddy's) depending on
-  environment or application (you may bring up multiple for development).
+  environment or application (you may bring up multiple).
 
 > ⚠️ Important: The .env file is for local development only. Never store real
 > secrets in version control or production. Use CI/CD environment variables or
 > a secrets manager instead.
-
-To start multiple applications, be sure to configure different Caddy ports for
-each.
 
 ## 3. Start the Stack
 
