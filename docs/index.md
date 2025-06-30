@@ -25,11 +25,9 @@ Caddy), making it easy to develop locally or deploy remotely.
 
 ---
 
-## 📚 Documentation
+## 📚 What's next?
 
-- [Getting Started](gettingstarted.md)
-- [Migrations](migrations.md)
-- [Postgres Extensions](extensions.md)
-- [Authentication](authentication.md)
-- [Psql](psql.md)
-- [Deploying to Remote Environments](deploying.md)
+👉 [Getting Started](gettingstarted.md)  
+👉 Jump to the [Developer
+Wiki](https://github.com/explodinglabs/superstack/wiki) to start adding to your
+stack.
