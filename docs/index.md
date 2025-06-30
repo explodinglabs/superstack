@@ -1,13 +1,29 @@
-![SuperStack](assets/logo.png)
+<style>
+  .logo-responsive {
+    float: right;
+    padding-left: 2em;
+  }
+
+  @media (max-width: 768px) {
+    .logo-responsive {
+      float: none;
+      display: block;
+      margin: 1em auto;
+      text-align: center;
+    }
+  }
+</style>
+
+<img src="assets/logo.png" alt="SuperStack Logo" class="logo-responsive" />
 
 # SuperStack
 
 Jump to:
 [GitHub](https://github.com/explodinglabs/superstack) | [Developer Wiki](https://github.com/explodinglabs/superstack/wiki)
 
-_SuperStack_ is a lightweight, modular backend powered by PostgreSQL — perfect
-for indie developers, SaaS builders, and teams who want full rontrol without
-the bloat.
+_SuperStack_ is a minimal, modular backend powered by PostgreSQL — perfect for
+indie developers, SaaS builders, and teams who want full rontrol without the
+bloat.
 
 Spin up a fully working backend in seconds. Just clone, run, and start
 building.
