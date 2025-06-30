@@ -9,8 +9,8 @@ _SuperStack_ is a lightweight, modular backend powered by PostgreSQL — perfect
 for indie developers, SaaS builders, and teams who want full rontrol without
 the bloat.
 
-Spin up a fully working backend in seconds, with zero setup. Just clone and
-run.
+Spin up a fully working backend in seconds. Just clone, run, and start
+building.
 
 ---
 
@@ -30,5 +30,5 @@ Caddy), making it easy to develop locally or deploy remotely.
 
 ## 📚 What's next?
 
-👉 [Getting Started](gettingstarted.md) – guide to installing SuperStack and
+👉 [Getting Started](gettingstarted.md) – a guide to installing SuperStack and
 launching the stack.
