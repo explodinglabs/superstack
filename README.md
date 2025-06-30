@@ -5,7 +5,7 @@
 <h1 align="center">SuperStack</h1>
 
 <p align="center">
-  <a href="https://www.explodinglabs.com/superstack/">Documentation</a>
+  <a href="https://www.explodinglabs.com/superstack/">SuperStack Guide</a>
   | <a href="https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
 </p>
 
@@ -48,4 +48,4 @@ your Swagger UI.
 Explore the full documentation:
 
 📖 [SuperStack Guide](https://www.explodinglabs.com/superstack/) — Everything you need to install, configure, and use SuperStack out of the box.  
-🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — Add features like authentication, messaging queues, Stripe webhooks, and more — a collection of integrations.
+🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A collection of integrations to add features like authentication, messaging queues, Stripe webhooks, and more.
