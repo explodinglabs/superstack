@@ -4,6 +4,10 @@
 
 <h1 align="center">SuperStack</h1>
 
+<p align="center">
+  [Documentation](https://www.explodinglabs.com/superstack/) | [Developer Wiki](https://github.com/explodinglabs/superstack/wiki)
+</p>
+
 _SuperStack_ is a minimal **application backend** powered by PostgreSQL and
 PostgREST, routed through Caddy. Designed for speed, simplicity, and
 composability.
@@ -38,6 +42,12 @@ docker compose up -d
 Open [http://localhost:8000/openapi/](http://localhost:8000/openapi/) to view
 your Swagger UI.
 
-## 📚 Full Documentation
+## 📚 Documentation
 
-👉 [explodinglabs.com/superstack/](https://explodinglabs.com/superstack/)
+Explore the full documentation:
+
+📖 [SuperStack Guide](https://explodinglabs.com/superstack/) — Everything you need to install, configure, and use SuperStack out of the box.
+🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — Add features like authentication, messaging queues, Stripe webhooks, and more — a collection of integrations.
+
+👉 [Superstack Documentation]()
+👉 [Build your app with instructions in the Wiki](https://github.com/explodinglabs/superstack/wiki)
