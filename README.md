@@ -5,7 +5,8 @@
 <h1 align="center">SuperStack</h1>
 
 <p align="center">
-  [Documentation](https://www.explodinglabs.com/superstack/) | [Developer Wiki](https://github.com/explodinglabs/superstack/wiki)
+  <a href="https://www.explodinglabs.com/superstack/">Documentation</a>
+  | <a href"https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
 </p>
 
 _SuperStack_ is a minimal **application backend** powered by PostgreSQL and
