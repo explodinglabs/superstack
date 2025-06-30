@@ -8,7 +8,7 @@
     .logo-responsive {
       float: none;
       display: block;
-      margin: 1em auto;
+      margin: 0 auto 2em;
       text-align: center;
     }
   }
