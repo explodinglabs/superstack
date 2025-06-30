@@ -57,9 +57,12 @@ This `.env` file is used to configure:
 - **Ports** – Adjust the exposed ports (specifically, Caddy's) depending on
   environment or application (you may bring up multiple for development).
 
-> ⚠️ Important: This file is for local development only. Never store real
+> ⚠️ Important: The .env file is for local development only. Never store real
 > secrets in version control or production. Use CI/CD environment variables or
 > a secrets manager instead.
+
+To start multiple applications, be sure to configure different Caddy ports for
+each.
 
 ## 3. Start the Stack
 
@@ -71,7 +74,7 @@ That's it – your backend is live.
 
 You can now open
 [http://localhost:8000/openapi/](http://localhost:8000/openapi/) to explore
-your API.
+your API (assuming 8000 is your Caddy port).
 
 ---
 
