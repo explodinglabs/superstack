@@ -12,4 +12,4 @@ services:
       retries: 10
   caddy:
     volumes:
-      - ./caddy/conf/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
