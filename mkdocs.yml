@@ -3,6 +3,7 @@ site_url: https://explodinglabs.com/superstack/
 repo_url: https://github.com/explodinglabs/superstack
 theme:
   name: material
+  logo: assets/logo.png
   features:
     - navigation.footer
     - palette.toggle
