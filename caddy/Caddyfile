@@ -1,11 +1,8 @@
 :80, :443 {
 
   # PostgREST
-  handle_path /rest/* {
-    reverse_proxy http://postgrest:3000
-  }
-
-  handle /rpc/* {
+  @postgrest path /api/* /rpc/*
+  handle @postgrest {
     reverse_proxy http://postgrest:3000
   }
 
