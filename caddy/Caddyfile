@@ -1,16 +1,15 @@
-:80, :443 {
+:80, :443
 
-  # PostgREST
-  handle /rpc/* {
-    reverse_proxy http://postgrest:3000
-  }
+# PostgREST
+handle /rpc/* {
+  reverse_proxy http://postgrest:3000
+}
 
-  handle_path /api/* {
-    reverse_proxy http://postgrest:3000
-  }
+handle_path /api/* {
+  reverse_proxy http://postgrest:3000
+}
 
-  # Swagger UI
-  handle_path /openapi/* {
-    reverse_proxy swagger-ui:8080
-  }
+# Swagger UI
+handle_path /openapi/* {
+  reverse_proxy swagger-ui:8080
 }
