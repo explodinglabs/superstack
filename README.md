@@ -9,7 +9,7 @@
   | <a href="https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
 </p>
 
-_SuperStack_ is a minimal **application backend** powered by PostgreSQL and
+_SuperStack_ is an **application backend** powered by PostgreSQL and
 PostgREST, routed through Caddy. Designed for speed, simplicity, and
 composability.
 
