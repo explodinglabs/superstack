@@ -9,7 +9,7 @@
   | <a href="https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
 </p>
 
-_SuperStack_ is a minimal **application backend** powered by PostgreSQL and
+_SuperStack_ is an **application backend** powered by PostgreSQL and
 PostgREST, routed through Caddy. Designed for speed, simplicity, and
 composability.
 
@@ -48,4 +48,4 @@ your Swagger UI.
 Explore the full documentation:
 
 📖 [SuperStack Guide](https://www.explodinglabs.com/superstack/) — Everything you need to install, configure, and use SuperStack out of the box.  
-🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A collection of integrations to add features like authentication, messaging queues, Stripe webhooks, and more.
+🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A collection of pages to help you add features like authentication, messaging queues, Stripe webhooks, and more.
