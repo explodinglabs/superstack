@@ -1,10 +1,8 @@
 -- Initial migrations to setup PostgREST
 
--- To reduce the chance of env vars being logged, we set values here
-set pgrst_jwt_secret '$PGRST_JWT_SECRET'
-set pgrst_authenticator_pass '$PGRST_AUTHENTICATOR_PASS'
-
--- Non-transactional statements (these cannot go inside a transaction)
+-- Set values here to reduce the chance of env vars being logged
+\set pgrst_jwt_secret '$PGRST_JWT_SECRET'
+\set pgrst_authenticator_pass '$PGRST_AUTHENTICATOR_PASS'
 
 -- Set the JWT secret in the db - despite it being set in the PGRST_JWT_SECRET
 -- env var, this appears to be also required
