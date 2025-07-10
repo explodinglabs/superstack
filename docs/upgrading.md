@@ -1,6 +1,8 @@
-To upgrade to the latest SuperStack:
+To upgrade to the latest SuperStack, you need to have followed the **Advanced**
+method described in [Getting Started](./gettingstarted.md).
+
+Then:
 
 ```sh
-git remote add upstream https://github.com/explodinglabs/superstack.git
 git pull upstream main
 ```
