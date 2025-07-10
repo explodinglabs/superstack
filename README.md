@@ -5,7 +5,7 @@
 <h1 align="center">SuperStack</h1>
 
 <p align="center">
-  <a href="https://www.explodinglabs.com/superstack/">SuperStack Guide</a>
+  <a href="https://www.explodinglabs.com/superstack/">SuperStack Docs</a>
   | <a href="https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
 </p>
 
