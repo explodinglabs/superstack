@@ -47,5 +47,5 @@ your Swagger UI.
 
 Explore the full documentation:
 
-📖 [SuperStack Guide](https://www.explodinglabs.com/superstack/) — Everything you need to install, configure, and use SuperStack out of the box.  
+📖 [SuperStack Docs](https://www.explodinglabs.com/superstack/) — Everything you need to install, configure, and use SuperStack out of the box.  
 🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A collection of pages to help you add features like authentication, messaging queues, Stripe webhooks, and more.
