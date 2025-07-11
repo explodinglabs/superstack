@@ -29,7 +29,7 @@ flowchart TD
 
 ## 🚀 Quick Start
 
-https://github.com/user-attachments/assets/c39b6184-a02b-46b4-adb0-30c7c66297cb
+https://github.com/user-attachments/assets/01f2c3a5-8e56-4f7c-889a-9312c8b1a9bd
 
 1. [Create your repository from the SuperStack template](https://github.com/explodinglabs/superstack/generate)
 
