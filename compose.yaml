@@ -10,7 +10,6 @@ services:
       - postgres_data:/var/lib/postgresql/data:rw
     environment:
       PGRST_AUTHENTICATOR_PASS: ${PGRST_AUTHENTICATOR_PASS:?} # Included for the migrations to use
-      PGRST_JWT_SECRET: ${PGRST_JWT_SECRET:?} # Used in initial migration to set JWT secret in db
       POSTGRES_DB: app
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
       POSTGRES_USER: ${POSTGRES_USER:?}
@@ -30,13 +29,8 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      PGRST_APP_SETTINGS_JWT_EXP: 3600
-      PGRST_APP_SETTINGS_JWT_SECRET: ${PGRST_JWT_SECRET:?}
       PGRST_DB_ANON_ROLE: anon
-      PGRST_DB_SCHEMAS: api
       PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@postgres:5432/app
-      PGRST_JWT_SECRET: ${PGRST_JWT_SECRET:?}
-      PGRST_OPENAPI_MODE: ignore-privileges
 
   swagger-ui:
     image: swaggerapi/swagger-ui:v5.20.1

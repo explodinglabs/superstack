@@ -26,7 +26,7 @@ app=#
 You can also run SQL directly from the command line:
 
 ```
-bin/postgres psql -c 'select * from api.movie;'
+bin/postgres psql -c 'select * from movie;'
 ```
 
 ## ⚙️ Customize psql Behavior
