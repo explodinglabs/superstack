@@ -29,6 +29,8 @@ flowchart TD
 
 ## 🚀 Quick Start
 
+https://github.com/user-attachments/assets/4338e056-6efb-46ab-b4fb-b4ea3a193951
+
 1. [Create your repository from the SuperStack template](https://github.com/explodinglabs/superstack/generate)
 
 2. Clone your repository and start SuperStack:
