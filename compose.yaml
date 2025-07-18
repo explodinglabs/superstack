@@ -1,5 +1,4 @@
-# Production compose file. Don't mount any local directories in here, that
-# should be done in the override file - for development only.
+# All-environment compose file.
 
 services:
   caddy:
