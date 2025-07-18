@@ -1,5 +1,9 @@
 # This file is for development-only overrides
 services:
+  caddy:
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+
   postgres:
     volumes:
       - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
@@ -10,6 +14,3 @@ services:
       interval: 0.5s
       timeout: 1s
       retries: 10
-  caddy:
-    volumes:
-      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
