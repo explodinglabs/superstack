@@ -2,26 +2,16 @@
 # should be done in the override file - for development only.
 
 services:
-  postgres:
-    image: ghcr.io/explodinglabs/superstack-postgres:0.1.0
+  caddy:
+    image: ghcr.io/explodinglabs/superstack-caddy:0.1.0
     build:
-      context: ./postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data:rw
+      context: ./caddy
+    ports:
+      - ${CADDY_HTTP_PORT:?}:80
     environment:
-      PGRST_AUTHENTICATOR_PASS: ${PGRST_AUTHENTICATOR_PASS:?} # Included for the migrations to use
-      POSTGRES_DB: app
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
-      POSTGRES_USER: ${POSTGRES_USER:?}
-      PGUSER: ${PGUSER}
-      PGPASS: ${PGPASS}
-      PGDATABASE: app
-    command: postgres -c custom.authenticator_password=${PGRST_AUTHENTICATOR_PASS:?}
-    healthcheck:
-      test: ["CMD", "pg_isready", "-h", "localhost", "-d", "app"]
-      interval: 0.5s
-      timeout: 1s
-      retries: 10
+      CADDY_AUTO_HTTPS: $CADDY_AUTO_HTTPS
+    volumes:
+      - caddy_data:/data:rw
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
@@ -39,16 +29,26 @@ services:
     depends_on:
       - postgrest
 
-  caddy:
-    image: ghcr.io/explodinglabs/superstack-caddy:0.1.0
+  postgres:
+    image: ghcr.io/explodinglabs/superstack-postgres:0.1.0
     build:
-      context: ./caddy
-    ports:
-      - ${CADDY_HTTP_PORT:?}:80
-    environment:
-      CADDY_AUTO_HTTPS: $CADDY_AUTO_HTTPS
+      context: ./postgres
     volumes:
-      - caddy_data:/data:rw
+      - postgres_data:/var/lib/postgresql/data:rw
+    environment:
+      PGDATABASE: app
+      PGPASS: ${PGPASS}
+      PGUSER: ${PGUSER}
+      POSTGRES_DB: app
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+      POSTGRES_USER: ${POSTGRES_USER:?}
+      PGRST_AUTHENTICATOR_PASS: ${PGRST_AUTHENTICATOR_PASS:?} # Included for use in the init_postgrest migration
+    command: postgres -c custom.authenticator_password=${PGRST_AUTHENTICATOR_PASS:?}
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "localhost", "-d", "app"]
+      interval: 0.5s
+      timeout: 3s
+      retries: 10
 
 volumes:
   postgres_data:
