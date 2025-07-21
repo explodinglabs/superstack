@@ -1,8 +1,7 @@
-# All-environment compose file.
+# All-environment Compose file.
 
 services:
   caddy:
-    image: ghcr.io/explodinglabs/superstack-caddy:0.1.0
     build:
       context: ./caddy
     ports:
@@ -30,7 +29,6 @@ services:
       - postgrest
 
   postgres:
-    image: ghcr.io/explodinglabs/superstack-postgres:0.1.0
     build:
       context: ./postgres
     command: postgres -c custom.authenticator_password=${PGRST_AUTHENTICATOR_PASS:?}
