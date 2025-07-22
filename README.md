@@ -42,9 +42,6 @@ cp example.env .env
 docker compose up -d
 ```
 
-Open [http://localhost:8000/openapi/](http://localhost:8000/openapi/) to view
-your Swagger UI.
-
 ## 📚 Documentation
 
 Explore the full documentation:
