@@ -16,8 +16,8 @@ composability.
 ```mermaid
 flowchart TD
     Caddy["<b>Caddy</b><br><i>API Gateway</i>"]
-    Caddy --> Services["<b>Services</b><br><i>PostgREST, Swagger UI + more</i>"]
-    Services --> Postgres["<b>Postgres</b>"]
+    Caddy --> PostgREST["<b>PostgREST</b><br><i>API Layer</i>"]
+    PostgREST --> Postgres["<b>Postgres</b><br><i>Database</i>"]
 ```
 
 ## 🎯 Perfect For
