@@ -15,9 +15,9 @@ composability.
 
 ```mermaid
 flowchart TD
-    Caddy["<b>Caddy</b><br><i>API Gateway</i>"]
-    Caddy --> Services["<b>Services</b><br><i>PostgREST, Swagger UI + more</i>"]
-    Services --> Postgres["<b>Postgres</b>"]
+    Gateway["<b>API Gateway</b><br><i>Caddy</i>"]
+    Gateway --> API["<b>API Layer</b><br><i>PostgREST + More</i>"]
+    API --> Database["<b>Database</b><br><i>Postgres</i>"]
 ```
 
 ## 🎯 Perfect For
@@ -42,12 +42,9 @@ cp example.env .env
 docker compose up -d
 ```
 
-Open [http://localhost:8000/openapi/](http://localhost:8000/openapi/) to view
-your Swagger UI.
-
 ## 📚 Documentation
 
 Explore the full documentation:
 
 📖 [SuperStack Docs](https://explodinglabs.com/superstack/) — Everything you need to install, configure, and use SuperStack out of the box.  
-🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A collection of pages to help you add features like authentication, messaging queues, Stripe webhooks, and more.
+🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A collection of pages to help you add features like authentication, messaging queues, Stripe webhooks, etc.
