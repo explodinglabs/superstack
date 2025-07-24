@@ -9,7 +9,3 @@ handle /rpc/* {
   reverse_proxy http://postgrest:3000
 }
 
-# Swagger UI
-handle_path /openapi/* {
-  reverse_proxy swagger-ui:8080
-}

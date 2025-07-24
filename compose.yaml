@@ -21,13 +21,6 @@ services:
       postgres:
         condition: service_healthy
 
-  swagger-ui:
-    image: swaggerapi/swagger-ui:v5.20.1
-    environment:
-      SWAGGER_JSON_URL: http://localhost:${CADDY_HTTP_PORT:?}/rest/
-    depends_on:
-      - postgrest
-
   postgres:
     build:
       context: ./postgres
