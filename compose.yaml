@@ -9,8 +9,6 @@ services:
       - 443:443
     volumes:
       - caddy_data:/data:rw
-    environment:
-      CADDY_AUTO_HTTPS: $CADDY_AUTO_HTTPS
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
