@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# If first argument is empty or starts with '-', assume "caddy" as the command
-if [[ -z "$1" || "$1" == -* ]]; then
-  set -- caddy "$@"
-fi
+# Note we can't force the entry point of "caddy" like it's done in
+# bin/postgres (psql). The reason is that psql's arguments all start with a
+# dash, but caddy's don't (caddy run, caddy reload, caddy hash-password). For
+# that reason you have to type bin/caddy caddy arg ...
 
 # If input is coming from a pipe or file, use -T to disable tty
 if [[ ! -t 0 ]]; then
