@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# If first argument is empty or starts with '-', assume "caddy" as the command
+if [[ -z "$1" || "$1" == -* ]]; then
+  set -- caddy "$@"
+fi
+
+# If input is coming from a pipe or file, use -T to disable tty
+if [[ ! -t 0 ]]; then
+  docker compose exec -T caddy "$@"
+else
+  docker compose exec -it caddy "$@"
+fi
