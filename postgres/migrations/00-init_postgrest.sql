@@ -3,6 +3,10 @@
 -- Set values here to reduce the chance of env vars being logged
 \set pgrst_authenticator_pass '$PGRST_AUTHENTICATOR_PASS'
 
+-- Revoke execute on functions from public
+-- See https://docs.postgrest.org/en/stable/explanations/db_authz.html#functions
+alter default privileges revoke execute on functions from public;
+
 begin;
 
 -- Create authenticator and anonymous roles. The authenticator role is used for
