@@ -10,7 +10,7 @@ services:
     volumes:
       - caddy_data:/data:rw
     environment:
-      - CADDY_SITE_ADDRESS: :80, :443
+      CADDY_SITE_ADDRESS: :80, :443
 
   postgrest:
     image: postgrest/postgrest:v12.2.8
