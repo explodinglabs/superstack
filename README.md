@@ -43,7 +43,9 @@ docker compose up -d
 
 ## 📚 Documentation
 
-Explore the full documentation:
+📖 [SuperStack Docs](https://explodinglabs.com/superstack/) — Everything you
+need to install, configure, and use SuperStack out of the box.
 
-📖 [SuperStack Docs](https://explodinglabs.com/superstack/) — Everything you need to install, configure, and use SuperStack out of the box.  
-🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A collection of pages to help you add features like authentication, messaging queues, Stripe webhooks, etc.
+🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A
+collection of pages to help you add features like authentication, messaging
+queues, Stripe webhooks, etc.
