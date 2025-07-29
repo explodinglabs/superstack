@@ -9,3 +9,7 @@ handle /rpc/* {
   reverse_proxy http://postgrest:3000
 }
 
+# Fallback
+handle {
+  respond "Not found" 404
+}
