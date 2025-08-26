@@ -7,6 +7,10 @@ services:
       CADDY_AUTO_HTTPS: off
       CADDY_SITE_ADDRESS: :80
 
+  postgrest:
+    environment:
+      PGRST_LOG_LEVEL: debug
+
   postgres:
     volumes:
       - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
