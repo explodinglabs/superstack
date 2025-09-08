@@ -42,5 +42,5 @@ services:
       retries: 10
 
 volumes:
-  postgres_data:
   caddy_data:
+  postgres_data:
