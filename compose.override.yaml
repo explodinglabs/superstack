@@ -1,6 +1,8 @@
 # This file is for development-only overrides
 services:
   caddy:
+    ports:
+      - 8001:80
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
     environment:
