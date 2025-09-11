@@ -36,7 +36,7 @@ https://github.com/user-attachments/assets/5b53338a-9eef-405c-820c-cd5253f09d0d
 
 ```sh
 git clone https://github.com/yourname/myapp.git
-cd myapp
+cd myapp/app
 cp example.env .env
 docker compose up -d
 ```
