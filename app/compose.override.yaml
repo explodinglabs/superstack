@@ -1,25 +1,12 @@
-# This file is for development-only overrides
+# Development-only overrides
+
 services:
   caddy:
-    ports:
-      - 8001:80
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
     environment:
-      CADDY_AUTO_HTTPS: off
       CADDY_SITE_ADDRESS: :80
 
   postgrest:
     environment:
       PGRST_LOG_LEVEL: debug
-
-  postgres:
-    volumes:
-      - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
-      - ./postgres/migrations:/etc/superstack/migrations:rw
-      - ./postgres/bin:/superstack-bin:ro
-    # Set a faster healthcheck interval for the development server
-    healthcheck:
-      interval: 0.5s
-      timeout: 1s
-      retries: 10

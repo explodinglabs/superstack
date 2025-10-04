@@ -10,7 +10,7 @@
 </p>
 
 _SuperStack_ is an **application backend** powered by PostgreSQL and PostgREST,
-routed through Caddy. Designed for speed, simplicity, and composability.
+routed through Caddy. Designed for speed, simplicity, and extensibility.
 
 ```mermaid
 flowchart TD
@@ -32,13 +32,26 @@ https://github.com/user-attachments/assets/5b53338a-9eef-405c-820c-cd5253f09d0d
 
 1. [Create your repository from the SuperStack template](https://github.com/explodinglabs/superstack/generate)
 
-2. Clone your repository and start SuperStack:
+2. Clone your repository:
 
 ```sh
 git clone https://github.com/yourname/myapp.git
-cd myapp/app
-cp example.env .env
-docker compose up -d
+cd myapp
+```
+
+3. Create environment files:
+
+```sh
+cp db/example.env db/.env
+cp app/example.env app/.env
+```
+
+4. Start the db, proxy and app stack:
+
+```sh
+cd db && docker compose up -d
+cd ../proxy && docker compose up -d
+cd ../app && docker compose up -d
 ```
 
 ## 📚 Documentation

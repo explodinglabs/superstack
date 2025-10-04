@@ -1,0 +1,6 @@
+services:
+  caddy:
+    ports:
+      - 8001:80
+    environment:
+      CADDY_SITE_ADDRESS: :80
