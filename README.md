@@ -14,9 +14,9 @@ routed through Caddy. Designed for speed, simplicity, and extensibility.
 
 ```mermaid
 flowchart TD
-    Gateway["<b>API Gateway</b><br><i>Caddy</i>"]
-    Gateway --> API["<b>API Services</b><br><i>PostgREST + Add More</i>"]
-    API --> Database["<b>Database</b><br><i>Postgres</i>"]
+    Proxy["<b>Proxy</b><br><i>Directs Traffic</i>"]
+    Proxy --> App["<b>App</b><br><i>PostgREST + More</i>"]
+    App --> Database["<b>Database</b><br><i>Postgres</i>"]
 ```
 
 ## 🎯 Perfect For
