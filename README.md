@@ -46,7 +46,7 @@ cp db/example.env db/.env
 cp app/example.env app/.env
 ```
 
-4. Start the db, proxy and app stack:
+4. Start the database, proxy and app:
 
 ```sh
 cd db && docker compose up -d
