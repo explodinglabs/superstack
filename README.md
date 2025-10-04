@@ -14,8 +14,8 @@ routed through Caddy. Designed for speed, simplicity, and extensibility.
 
 ```mermaid
 flowchart TD
-    Proxy["<b>Proxy</b><br><i>Directs Traffic</i>"]
-    Proxy --> App["<b>App</b><br><i>PostgREST + More</i>"]
+    Proxy["<b>Proxy</b><br><i>Ports 80 + 443 open, directs traffic to the app</i>"]
+    Proxy --> App["<b>App</b><br><i>PostgREST + Add More Services</i>"]
     App --> Database["<b>Database</b><br><i>Postgres</i>"]
 ```
 
