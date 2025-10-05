@@ -15,7 +15,7 @@ PostgreSQL with PostgREST. Designed for speed, simplicity, and extensibility.
 ```mermaid
 flowchart TD
     Proxy["<b>Proxy</b><br><i>Directs traffic to the application, used for traffic shifting</i>"]
-    Proxy --> App["<b>Application</b><br><i>Routes, PostgREST + Add APIs, Messaging, Workers + More</i>"]
+    Proxy --> App["<b>Application</b><br><i>Routes, Auth, PostgREST + Add APIs, Messaging, Workers + More</i>"]
     App --> Database["<b>Database</b><br><i>PostgreSQL</i>"]
 ```
 
