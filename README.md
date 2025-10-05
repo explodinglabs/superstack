@@ -9,13 +9,13 @@
   | <a href="https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
 </p>
 
-_SuperStack_ is an **application backend** powered by Caddy, and includes
-PostgreSQL with PostgREST. Designed for speed, simplicity, and extensibility.
+_SuperStack_ is an **application backend** powered by Caddy, designed for
+speed, simplicity, and extensibility.
 
 ```mermaid
 flowchart TD
     Proxy["<b>Proxy</b><br><i>Directs traffic to the application, used for traffic shifting</i>"]
-    Proxy --> App["<b>Application</b><br><i>Routes, Auth, PostgREST + Add APIs, Messaging, Workers + More</i>"]
+    Proxy --> App["<b>Application</b><br><i>Routes, Auth, APIs, Messaging, Workers, etc.</i>"]
     App --> Database["<b>Database</b><br><i>PostgreSQL</i>"]
 ```
 
