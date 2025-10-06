@@ -2,8 +2,6 @@ services:
   caddy:
     build:
       context: ./caddy
-    environment:
-      CADDY_SITE_ADDRESS: api.myapp.com
     networks:
       default:
       # This alias allows the proxy to target this container, while still
