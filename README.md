@@ -16,6 +16,7 @@ Minimal by default, it is endlessly extensible.
 flowchart TD
     Proxy["<b>Proxy</b><br><i>Used for traffic shifting</i>"]
     Proxy --> App["<b>Application</b><br><i>Routes, Auth, APIs, Messaging, Workers, etc.</i>"]
+    App --> Database["<b>Database</b><br><i>Optional</i>"]
 ```
 
 ## 🎯 Perfect For
