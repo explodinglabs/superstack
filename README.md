@@ -62,11 +62,11 @@ OK
 Now build your application by following guides in the
 [Wiki](/explodinglabs/superstack/wiki).
 
-## 📚 Documentation
+## 📚 Links
 
 📖 [SuperStack Docs](https://explodinglabs.com/superstack/) — Everything you
 need to install, configure, and use SuperStack out of the box.
 
-🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A
+🛠️ [SuperStack Wiki](https://github.com/explodinglabs/superstack/wiki) — A
 collection of pages to help you add features like authentication, database,
 messaging, etc.
