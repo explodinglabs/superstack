@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://explodinglabs.com/superstack/">SuperStack Docs</a>
-  | <a href="https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
+  | <a href="https://github.com/explodinglabs/superstack/wiki">SuperStack Wiki</a>
 </p>
 
 _SuperStack_ is an **application backend** built on Docker for self-hosting.
