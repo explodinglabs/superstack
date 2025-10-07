@@ -18,6 +18,9 @@ flowchart TD
     Proxy --> App["<b>Application</b><br><i>Routes, Auth, APIs, Messaging, Workers, etc.</i>"]
 ```
 
+Build your application by following guides in the
+[Wiki](/explodinglabs/superstack/wiki).
+
 ## 🎯 Perfect For
 
 - **Solo developers** who want full backend control
@@ -65,5 +68,5 @@ OK
 need to install, configure, and use SuperStack out of the box.
 
 🛠️ [Developer Wiki](https://github.com/explodinglabs/superstack/wiki) — A
-collection of pages to help you add features like authentication, messaging
-queues, Stripe webhooks, etc.
+collection of pages to help you add features like authentication, database,
+messaging, etc.
