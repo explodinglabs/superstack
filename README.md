@@ -9,8 +9,8 @@
   | <a href="https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
 </p>
 
-_SuperStack_ is **application backend** designed for self-hosting. Built on
-Docker and Caddy, it is minimal by default but endlessly extensible.
+_SuperStack_ is an **application backend** built on Docker for self-hosting.
+Minimal by default, but endlessly extensible.
 
 ```mermaid
 flowchart TD
