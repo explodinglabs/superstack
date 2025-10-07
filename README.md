@@ -61,7 +61,7 @@ OK
 ```
 
 Now build your application by following guides in the
-[Wiki](/explodinglabs/superstack/wiki).
+[Wiki](https://github.com/explodinglabs/superstack/wiki).
 
 ## 📚 Links
 
