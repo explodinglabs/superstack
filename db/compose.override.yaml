@@ -5,7 +5,7 @@ services:
     volumes:
       - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
       - ./postgres/migrations:/etc/superstack/migrations:rw
-      - ./postgres/bin:/superstack-bin:ro
+      - ./postgres/bin:/postgres-bin:ro
     # Set faster healthcheck intervals for the development server
     healthcheck:
       interval: 0.5s
