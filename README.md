@@ -10,7 +10,7 @@
 </p>
 
 _SuperStack_ is an **application backend** built on Docker for self-hosting.
-Minimal by default, but endlessly extensible.
+Minimal by default, it is endlessly extensible.
 
 ```mermaid
 flowchart TD
