@@ -1,12 +1,8 @@
 :80
 
-# PostgREST
-handle_path /rest/* {
-  reverse_proxy http://postgrest:3000
-}
-
-handle /rpc/* {
-  reverse_proxy http://postgrest:3000
+# Health Check
+handle /healthcheck {
+  respond "OK" 200
 }
 
 # Fallback

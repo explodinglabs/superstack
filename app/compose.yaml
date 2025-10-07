@@ -10,17 +10,6 @@ services:
         aliases:
           - ${COMPOSE_PROJECT_NAME}_caddy
 
-  postgrest:
-    image: postgrest/postgrest:v12.2.8
-    environment:
-      PGRST_DB_ANON_ROLE: anon
-      PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@postgres:5432/app
-    networks:
-      - default
-      - db_default
-
 networks:
   proxy_default:
-    external: true
-  db_default:
     external: true

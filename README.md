@@ -36,19 +36,27 @@ git clone https://github.com/yourname/myapp.git
 cd myapp
 ```
 
-3. Create environment files:
+3. Start the proxy service:
 
 ```sh
-cp db/example.env db/.env
 cp app/example.env app/.env
+cd proxy && docker compose up -d
 ```
 
-4. Start the database, proxy and app:
+4. Start the application:
+
+Create environment files:
 
 ```sh
-cd db && docker compose up -d
-cd ../proxy && docker compose up -d
-cd ../app && docker compose up -d
+cd app
+docker compose up -d
+```
+
+Test it with:
+
+```sh
+$ curl http://localhost:8000/healthcheck
+OK
 ```
 
 ## 📚 Documentation

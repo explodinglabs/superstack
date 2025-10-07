@@ -4,7 +4,3 @@ services:
   caddy:
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
-
-  postgrest:
-    environment:
-      PGRST_LOG_LEVEL: debug
