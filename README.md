@@ -18,9 +18,6 @@ flowchart TD
     Proxy --> App["<b>Application</b><br><i>Routes, Auth, APIs, Messaging, Workers, etc.</i>"]
 ```
 
-Build your application by following guides in the
-[Wiki](/explodinglabs/superstack/wiki).
-
 ## 🎯 Perfect For
 
 - **Solo developers** who want full backend control
@@ -61,6 +58,9 @@ Test it with:
 $ curl http://localhost:8000/healthcheck
 OK
 ```
+
+Now build your application by following guides in the
+[Wiki](/explodinglabs/superstack/wiki).
 
 ## 📚 Documentation
 
