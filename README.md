@@ -36,20 +36,22 @@ git clone https://github.com/yourname/myapp.git
 cd myapp
 ```
 
-3. Start the proxy service:
+3. Create environment files:
 
 ```sh
 cp app/example.env app/.env
+```
+
+4. Start the proxy service:
+
+```sh
 cd proxy && docker compose up -d
 ```
 
-4. Start the application:
-
-Create environment files:
+5. Start the application:
 
 ```sh
-cd app
-docker compose up -d
+cd ../app && docker compose up -d
 ```
 
 Test it with:
@@ -59,7 +61,7 @@ $ curl http://localhost:8000/healthcheck
 OK
 ```
 
-Now build your application by following guides in the
+Add to your application by following guides in the
 [Wiki](/explodinglabs/superstack/wiki).
 
 ## 📚 Links

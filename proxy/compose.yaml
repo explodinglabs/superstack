@@ -2,7 +2,6 @@ services:
   caddy:
     build:
       context: ./caddy
-    image: ghcr.io/explodinglabs/sku-proxy:0.1.0
     ports:
       - "80:80"
       - "443:443"
@@ -14,3 +13,4 @@ services:
 
 volumes:
   caddy_data:
+    name: proxy_data
