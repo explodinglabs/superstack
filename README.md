@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://explodinglabs.com/superstack/">SuperStack Docs</a>
-  | <a href="https://github.com/explodinglabs/superstack/wiki">Developer Wiki</a>
+  | <a href="https://github.com/explodinglabs/superstack/wiki">SuperStack Wiki</a>
 </p>
 
 _SuperStack_ is an **application backend** built on Docker for self-hosting.
@@ -15,7 +15,8 @@ Minimal by default, it is endlessly extensible.
 ```mermaid
 flowchart TD
     Proxy["<b>Proxy</b><br><i>Used for traffic shifting</i>"]
-    Proxy --> App["<b>Application</b><br><i>Routes, Auth, APIs, Messaging, Workers, etc.</i>"]
+    Proxy --> App["<b>Application</b><br><i>API Gateway, Auth, APIs, Messaging, Workers, etc.</i>"]
+    App --> Database["<b>Database</b><br><i>Optional</i>"]
 ```
 
 ## 🎯 Perfect For
@@ -62,7 +63,7 @@ OK
 ```
 
 Add to your application by following guides in the
-[Wiki](/explodinglabs/superstack/wiki).
+[Wiki](https://github.com/explodinglabs/superstack/wiki).
 
 ## 📚 Links
 
