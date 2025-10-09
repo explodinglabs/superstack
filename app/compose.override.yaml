@@ -4,3 +4,5 @@ services:
   caddy:
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+    environment:
+      CADDY_SITE_ADDRESS: :80

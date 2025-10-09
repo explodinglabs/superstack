@@ -1,8 +1,0 @@
-# Development-only overrides
-
-services:
-  caddy:
-    ports:
-      - "8000:80"
-    environment:
-      CADDY_SITE_ADDRESS: :80

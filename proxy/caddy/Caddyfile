@@ -1,3 +1,0 @@
-{$CADDY_SITE_ADDRESS}
-
-reverse_proxy app_caddy:80

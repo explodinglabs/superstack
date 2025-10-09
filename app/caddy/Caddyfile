@@ -1,4 +1,4 @@
-:80
+{$CADDY_SITE_ADDRESS}
 
 # Health Check
 handle /healthcheck {

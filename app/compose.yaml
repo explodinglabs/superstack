@@ -2,14 +2,8 @@ services:
   caddy:
     build:
       context: ./caddy
-    networks:
-      default:
-      # This alias allows the proxy to target this container, while still
-      # allowing Docker to manage the container name
-      proxy_default:
-        aliases:
-          - ${COMPOSE_PROJECT_NAME}_caddy
-
-networks:
-  proxy_default:
-    external: true
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      CADDY_SITE_ADDRESS: api.myapp.com
