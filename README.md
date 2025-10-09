@@ -23,16 +23,11 @@ Minimal by default, it is endlessly extensible.
 
 1. [Create your repository from the SuperStack template](https://github.com/explodinglabs/superstack/generate)
 
-2. Clone your repository:
+2. Clone and Start the Application
 
 ```sh
 git clone https://github.com/yourname/myapp.git
 cd myapp/app
-```
-
-3. Start the Application
-
-```sh
 cp example.env .env
 docker compose up -d
 ```
