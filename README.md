@@ -12,13 +12,6 @@
 _SuperStack_ is an **application backend** built on Docker for self-hosting.
 Minimal by default, it is endlessly extensible.
 
-```mermaid
-flowchart TD
-    Proxy["<b>Proxy</b><br><i>Used for traffic shifting</i>"]
-    Proxy --> App["<b>Application</b><br><i>API Gateway, Auth, APIs, Messaging, Workers, etc.</i>"]
-    App --> Database["<b>Database</b><br><i>Optional</i>"]
-```
-
 ## 🎯 Perfect For
 
 - **Solo developers** who want full backend control

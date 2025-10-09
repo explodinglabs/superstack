@@ -1,4 +1,4 @@
-# Development-only overrides
+# Development overrides
 
 services:
   caddy:
