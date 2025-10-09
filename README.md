@@ -44,7 +44,7 @@ $ curl http://localhost:8000/healthcheck
 OK
 ```
 
-Add to your app by following guides in the
+Now, add to your app by following guides in the
 [Wiki](https://github.com/explodinglabs/superstack/wiki).
 
 ## 📚 Links
