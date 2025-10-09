@@ -34,25 +34,14 @@ flowchart TD
 
 ```sh
 git clone https://github.com/yourname/myapp.git
-cd myapp
+cd myapp/app
 ```
 
-3. Create environment files:
+3. Start the Application
 
 ```sh
-cp app/example.env app/.env
-```
-
-4. Start the proxy service:
-
-```sh
-cd proxy && docker compose up -d
-```
-
-5. Start the application:
-
-```sh
-cd ../app && docker compose up -d
+cp example.env .env
+docker compose up -d
 ```
 
 Test it with:
@@ -62,7 +51,7 @@ $ curl http://localhost:8000/healthcheck
 OK
 ```
 
-Add to your application by following guides in the
+Add to your app by following guides in the
 [Wiki](https://github.com/explodinglabs/superstack/wiki).
 
 ## 📚 Links

@@ -6,11 +6,10 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./caddy:/etc/caddy
       - caddy_data:/data
     environment:
       CADDY_SITE_ADDRESS: api.myapp.com
 
 volumes:
   caddy_data:
-    name: proxy_data
+    name: caddy-data
