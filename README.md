@@ -35,7 +35,7 @@ docker compose up -d
 Test it with:
 
 ```sh
-$ curl http://localhost:8000/healthcheck
+$ curl http://localhost:8000/healthz
 OK
 ```
 
