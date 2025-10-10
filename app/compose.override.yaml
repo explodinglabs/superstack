@@ -4,5 +4,7 @@ services:
   caddy:
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+    ports: !override
+      - 8000:80
     environment:
       CADDY_SITE_ADDRESS: :80
