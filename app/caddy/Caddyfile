@@ -1,7 +1,7 @@
 {$CADDY_SITE_ADDRESS}
 
 # Health Check
-handle /healthcheck {
+handle /healthz {
   respond "OK" 200
 }
 
