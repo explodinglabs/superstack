@@ -1,0 +1,15 @@
+services:
+  caddy:
+    build:
+      context: ./caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+    environment:
+      CADDY_SITE_ADDRESS: api.myapp.com
+
+volumes:
+  caddy_data:
+    name: caddy-data # Persistent volume for certificates
