@@ -28,7 +28,6 @@ Minimal by default, it is endlessly extensible.
 ```sh
 git clone https://github.com/yourname/myapp.git
 cd myapp/app
-cp example.env .env
 docker compose up -d
 ```
 
