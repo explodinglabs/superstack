@@ -8,7 +8,7 @@ services:
     volumes:
       - caddy_data:/data
     environment:
-      CADDY_SITE_ADDRESS: api.myapp.com
+      CADDY_SITE_ADDRESS: backend.myapp.com
 
 volumes:
   caddy_data:

@@ -6,4 +6,4 @@ services:
       - 80:80
       - 443:443
     environment:
-      CADDY_SITE_ADDRESS: api.myapp.com
+      CADDY_SITE_ADDRESS: backend.myapp.com
