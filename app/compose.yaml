@@ -1,3 +1,5 @@
+name: myapp-app
+
 services:
   caddy:
     build:

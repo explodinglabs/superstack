@@ -1,3 +1,5 @@
+name: myapp-proxy
+
 services:
   caddy:
     build:
