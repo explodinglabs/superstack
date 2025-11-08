@@ -4,8 +4,3 @@
 handle /healthz {
   respond "OK" 200
 }
-
-# Fallback
-handle {
-  respond "Not found" 404
-}
