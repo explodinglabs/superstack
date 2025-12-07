@@ -1,5 +1,7 @@
 {$CADDY_SITE_ADDRESS}
 
+encode zstd gzip
+
 # Health Check
 handle /healthz {
   respond "OK" 200
