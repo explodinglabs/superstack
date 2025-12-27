@@ -8,3 +8,15 @@ services:
       - 8000:80
     environment:
       CADDY_SITE_ADDRESS: :80
+
+  postgrest:
+    environment:
+      PGRST_DB_URI: postgres://myapp_authenticator:${PGRST_AUTHENTICATOR_PASS:?}@host.docker.internal:5432/myapp
+      PGRST_LOG_LEVEL: debug
+
+  migrate:
+    volumes:
+      - ./migrate/migrations:/migrations:ro
+      - ./migrate/bin:/migrate-bin:ro
+    environment:
+      DATABASE_URL: postgres://myapp_migrator:${MIGRATOR_PASS:?}@host.docker.internal:5432/myapp

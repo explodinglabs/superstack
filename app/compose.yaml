@@ -1,4 +1,4 @@
-name: myapp-app
+name: myapp
 
 services:
   caddy:
@@ -8,3 +8,21 @@ services:
       - 443:443
     environment:
       CADDY_SITE_ADDRESS: backend.myapp.com
+
+  postgrest:
+    image: postgrest/postgrest:v14.1
+    environment:
+      PGRST_DB_URI: postgres://myapp_authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
+      PGRST_DB_ANON_ROLE: anon
+      PGRST_DB_SCHEMAS: api
+      PGRST_JWT_SECRET: ${JWT_SECRET:?}
+      PGRST_JWT_SECRET_IS_BASE64: true
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  migrate:
+    build: ./migrate
+    environment:
+      DATABASE_URL: postgres://myapp_migrator:${MIGRATOR_PASS:?}@infra.local:5432/myapp
+    restart: "no"
