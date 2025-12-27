@@ -10,7 +10,7 @@ services:
       CADDY_SITE_ADDRESS: backend.myapp.com
 
   postgrest:
-    image: postgrest/postgrest:v14.1
+    image: postgrest/postgrest:v14.2
     environment:
       PGRST_DB_URI: postgres://myapp_authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
       PGRST_DB_ANON_ROLE: anon
