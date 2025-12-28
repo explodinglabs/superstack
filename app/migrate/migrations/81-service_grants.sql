@@ -4,7 +4,7 @@
 
 begin;
 
-grant usage on schema api to myapp_client;
+grant usage on schema api to myapp_service;
 
 
 commit;
