@@ -1,11 +1,17 @@
 -- ============================================================================
--- Core schema: Data, Triggers and Indexes
+-- Anon API
 -- ============================================================================
 
 begin;
 
-create schema core;
-revoke all on schema core from public;
+create schema api;
+revoke all on schema api from public;
+
+-- RPC
+
+
+-- Views
+
 
 
 commit;

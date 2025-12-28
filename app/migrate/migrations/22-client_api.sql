@@ -1,11 +1,14 @@
 -- ============================================================================
--- Core schema: Data, Triggers and Indexes
+-- Client API
 -- ============================================================================
 
 begin;
 
-create schema core;
-revoke all on schema core from public;
+-- RPC
+
+
+-- Views
+
 
 
 commit;

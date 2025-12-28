@@ -1,11 +1,8 @@
 -- ============================================================================
--- Core schema: Data, Triggers and Indexes
+-- Logic schema - internal functions
 -- ============================================================================
 
 begin;
-
-create schema core;
-revoke all on schema core from public;
 
 
 commit;
