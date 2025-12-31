@@ -1,14 +1,10 @@
 -- ============================================================================
--- Service API - Surface views and RPC functions
+-- Human Grants
 -- ============================================================================
 
 begin;
 
--- RPC
-
-
--- Views
-
+grant usage on schema api to human;
 
 
 commit;

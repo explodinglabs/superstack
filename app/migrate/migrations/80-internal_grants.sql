@@ -1,10 +1,10 @@
 -- ============================================================================
--- Service Grants
+-- Internal Grants
 -- ============================================================================
 
 begin;
 
-grant usage on schema api to myapp_service;
+grant usage on schema core, logic to internal;
 
 
 commit;

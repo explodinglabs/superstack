@@ -1,10 +1,17 @@
 -- ============================================================================
--- Anon Grants
+-- API Schema - Surface views and RPC functions for Human
 -- ============================================================================
 
 begin;
 
-grant usage on schema api to myapp_anon;
+create schema api;
+revoke all on schema api from public;
+
+-- RPC
+
+
+-- Views
+
 
 
 commit;
