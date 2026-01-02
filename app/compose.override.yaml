@@ -9,10 +9,23 @@ services:
     environment:
       CADDY_SITE_ADDRESS: :80
 
-  postgrest:
+  myapp-postgrest-internal:
     environment:
-      PGRST_DB_URI: postgres://myapp_authenticator:${PGRST_AUTHENTICATOR_PASS:?}@host.docker.internal:5432/myapp
+      PGRST_APP_SETTINGS_ENVIRONMENT: development
+      PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@host.docker.internal:5432/myapp
       PGRST_LOG_LEVEL: debug
+    networks:
+      - default
+      - dev
+
+  myapp-postgrest-human:
+    environment:
+      PGRST_APP_SETTINGS_ENVIRONMENT: development
+      PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@host.docker.internal:5432/myapp
+      PGRST_LOG_LEVEL: debug
+    networks:
+      - default
+      - dev
 
   migrate:
     volumes:
@@ -20,3 +33,8 @@ services:
       - ./migrate/bin:/migrate-bin:ro
     environment:
       DATABASE_URL: postgres://myapp_migrator:${MIGRATOR_PASS:?}@host.docker.internal:5432/myapp
+
+networks:
+  dev:
+    external: true
+    name: dev

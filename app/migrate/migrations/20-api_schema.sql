@@ -1,5 +1,5 @@
 -- ============================================================================
--- API Schema - Surface views and RPC functions for Human
+-- API schema - Surface views and RPC functions for Human
 -- ============================================================================
 
 begin;

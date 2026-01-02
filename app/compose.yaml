@@ -9,15 +9,26 @@ services:
     environment:
       CADDY_SITE_ADDRESS: backend.myapp.com
 
-  postgrest:
+  myapp-postgrest-internal:
     image: postgrest/postgrest:v14.2
     environment:
-      PGRST_DB_ANON_ROLE: anon
+      PGRST_APP_SETTINGS_ENVIRONMENT: production
+      PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET:?}
+      PGRST_DB_ANON_ROLE: internal
+      PGRST_DB_SCHEMAS: core, logic
+      PGRST_DB_URI: postgres://myapp_authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
+  myapp-postgrest-human:
+    image: postgrest/postgrest:v14.2
+    environment:
+      PGRST_APP_SETTINGS_ENVIRONMENT: production
+      PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET:?}
+      PGRST_DB_ANON_ROLE: human
       PGRST_DB_SCHEMAS: api
       PGRST_DB_URI: postgres://myapp_authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
-      PGRST_JWT_SECRET_IS_BASE64: true
-      PGRST_JWT_SECRET: ${APP_JWT_SECRET:?}
-      PGRST_SERVER_PORT: 3000 # 👈 unique internal port
     depends_on:
       migrate:
         condition: service_completed_successfully
