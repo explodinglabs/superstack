@@ -16,7 +16,7 @@ services:
       PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET:?}
       PGRST_DB_ANON_ROLE: internal
       PGRST_DB_SCHEMAS: core, logic
-      PGRST_DB_URI: postgres://myapp_authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
+      PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
     depends_on:
       migrate:
         condition: service_completed_successfully
@@ -28,7 +28,7 @@ services:
       PGRST_APP_SETTINGS_JWT_SECRET: ${JWT_SECRET:?}
       PGRST_DB_ANON_ROLE: human
       PGRST_DB_SCHEMAS: api
-      PGRST_DB_URI: postgres://myapp_authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
+      PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
     depends_on:
       migrate:
         condition: service_completed_successfully
