@@ -1,10 +1,10 @@
 -- ============================================================================
--- Human grants
+-- Trusted grants
 -- ============================================================================
 
 begin;
 
-grant usage on schema api to human;
+grant usage on schema core, logic to trusted;
 
 
 commit;

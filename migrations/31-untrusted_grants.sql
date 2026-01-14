@@ -1,10 +1,10 @@
 -- ============================================================================
--- Internal grants
+-- Untrusted grants
 -- ============================================================================
 
 begin;
 
-grant usage on schema core, logic to internal;
+grant usage on schema api to untrusted;
 
 
 commit;
