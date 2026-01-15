@@ -1,5 +1,6 @@
 -- ============================================================================
--- API schema - Surface views and RPC functions for untrusted
+-- API schema - Public surface (views and RPC functions) exposed to untrusted
+-- clients
 -- ============================================================================
 
 begin;

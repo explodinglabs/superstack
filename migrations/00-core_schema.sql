@@ -1,5 +1,5 @@
 -- ============================================================================
--- Core schema: Data, triggers and indexes
+-- Core schema  - Canonical data model and invariants
 -- ============================================================================
 
 begin;
