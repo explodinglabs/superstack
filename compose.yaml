@@ -2,7 +2,6 @@ name: myapp
 
 services:
   caddy:
-    build: ./caddy
     ports:
       - 80:80
       - 443:443
