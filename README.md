@@ -2,7 +2,7 @@
   <img alt="SuperStack logo" src="https://github.com/explodinglabs/superstack/blob/main/logo.png?raw=true" />
 </p>
 
-<h1 align="center">SuperStack App</h1>
+<h1 align="center">SuperStack</h1>
 
 <p align="center">
   <a href="https://explodinglabs.com/superstack/">SuperStack Docs</a>

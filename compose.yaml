@@ -7,6 +7,7 @@ services:
       - 443:443
     environment:
       CADDY_SITE_ADDRESS: edge.myapp.com
+    restart: unless-stopped
 
   postgrest-trusted:
     image: postgrest/postgrest:v14.2
@@ -14,6 +15,7 @@ services:
       PGRST_DB_ANON_ROLE: trusted
       PGRST_DB_SCHEMAS: core, logic
       PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
+    restart: unless-stopped
 
   postgrest-untrusted:
     image: postgrest/postgrest:v14.2
@@ -21,3 +23,4 @@ services:
       PGRST_DB_ANON_ROLE: untrusted
       PGRST_DB_SCHEMAS: api
       PGRST_DB_URI: postgres://authenticator:${PGRST_AUTHENTICATOR_PASS:?}@infra.local:5432/myapp
+    restart: unless-stopped

@@ -1,5 +1,4 @@
 .env
-.env.psql
 *.log
 *.tmp
 *.swp
@@ -7,4 +6,3 @@
 .vscode/
 .idea/
 .DS_Store
-postgres/migrations/.applied_migrations
